@@ -16,3 +16,5 @@ Create template YAML:
 `kubectl create deployment —image=busybox busybox —dry-run -o yaml`
 
 To keep process running forever:  `sh -c "exec tail -f /dev/null"` or `sleep infinity`
+
+Run on host to see traffic on port:  `sudo tcpdump -i eth0 -s 1500 port $PORT`
