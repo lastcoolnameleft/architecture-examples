@@ -1,8 +1,5 @@
 # Kubernetes One-Liners
 
-Get all pods on a node:
-`kgpo --all-namespaces --field-selector spec.nodeName=$NODE -o wide`
-
 Run MySQL Client:
 `kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- bash`
 
@@ -21,3 +18,6 @@ Create template YAML:
 To keep process running forever:  `sh -c "exec tail -f /dev/null"` or `sleep infinity`
 
 Run on host to see traffic on port:  `sudo tcpdump -i eth0 -s 1500 port $PORT`
+
+Get all pods on a node:
+`kgpo --all-namespaces --field-selector spec.nodeName=$NODE -o wide`
