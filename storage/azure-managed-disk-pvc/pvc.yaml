@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: dd-managed-hdd-1g
   annotations:
-    volume.beta.kubernetes.io/storage-class: managed-hdd
+    volume.beta.kubernetes.io/storage-class: default
 spec:
   accessModes:
   - ReadWriteOnce
