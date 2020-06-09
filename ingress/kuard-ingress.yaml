@@ -41,7 +41,7 @@ metadata:
   name: kuard
 spec:
   rules:
-  - host: kuard.<IP of Ingress Controller Service>.xip.io
+  - host: kuard.<IP of Ingress Controller Service>.nip.io
     http:
       paths:
       - path: /
