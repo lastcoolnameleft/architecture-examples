@@ -1,0 +1,51 @@
+# Assumes ingress controller is already running
+# Make sure to replace IP of Ingress Controller Service
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kuard
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kuard
+    spec:
+      containers:
+      - name: kuard
+        image: gcr.io/kuar-demo/kuard-amd64:1
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuard
+  labels:
+    name: kuard
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: kuard
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: kuard
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /kuard(/|$)(.*)
+        backend:
+          serviceName: kuard
+          servicePort: 80
