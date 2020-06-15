@@ -17,7 +17,7 @@ This example is designed to walk through this example
 To use this example, perform the following:
 
 Create ingress similiar to template below
-* The /$2 is important to remove the "dev-pod-info" path as it comes through since your app is likely not expecting it.
+* The /$2 is important to remove the APIM URL suffix as it comes through since your app is likely not expecting it.
 
 Create an ingress controller with an internal LB:
 
@@ -33,7 +33,6 @@ helm install nginx-ingress stable/nginx-ingress \
 Create the kuard and podinfo deployment, service and ingress rules
 
 ```
-kubectl apply -f kuard.yaml
 kubectl apply -f podinfo.yaml
 ```
 
@@ -45,8 +44,10 @@ Create the APIM instance and create the API's pointing to the AKS Ingress
       * e.g. podinfo
     * Web service: http://<IP of Ingress>/<same value as API URL Suffix>
         * e.g. http://10.240.0.42/podinfo
-1. Create a Blank API for kuard
-    * Same values as above, except replace podinfo with kuard
+    * Disable "Subscription Required"
+1. Create an Operation for the API
+    * URL: `/*`
+
 
 Verify APIM works
 
