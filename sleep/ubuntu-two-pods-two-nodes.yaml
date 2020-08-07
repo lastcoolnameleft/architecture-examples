@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: null
   labels:
     run: pod-a
   name: pod-a
@@ -11,16 +10,12 @@ spec:
     args: ["/bin/echo 'sleeping forever' && /bin/sleep infinity"]
     image: ubuntu
     name: pod-a
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-  nodeName: aks-nodepool1-16761241-vmss000000
+  nodeName: aks-nodepool1-32922832-vmss000000
 status: {}
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: null
   labels:
     run: pod-b
   name: pod-b
@@ -30,9 +25,5 @@ spec:
     args: ["/bin/echo 'sleeping forever' && /bin/sleep infinity"]
     image: ubuntu
     name: pod-b
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-  nodeName: aks-engine1-16761241-vmss00001n
-status: {}
+  nodeName: aks-nodepool1-32922832-vmss000001
 ---

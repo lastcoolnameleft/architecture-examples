@@ -1,12 +1,17 @@
 # Assumes ingress controller is already running
 # Make sure to replace IP of Ingress Controller Service
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kuard
+  name: kuard-deployment
+  labels:
+    app: kuard
 spec:
-  replicas: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kuard
   template:
     metadata:
       labels:
@@ -17,8 +22,6 @@ spec:
         image: gcr.io/kuar-demo/kuard-amd64:1
         ports:
         - containerPort: 8080
-          name: http
-          protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -41,7 +44,7 @@ metadata:
   name: kuard
 spec:
   rules:
-  - host: kuard.<IP of Ingress Controller Service>.nip.io
+  - host: kuard.52.252.208.221.nip.io
     http:
       paths:
       - path: /

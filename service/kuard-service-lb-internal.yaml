@@ -1,9 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kuard
+  name: kuard-deployment
+  labels:
+    app: kuard
 spec:
-  replicas: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kuard
   template:
     metadata:
       labels:
@@ -14,13 +19,11 @@ spec:
         image: gcr.io/kuar-demo/kuard-amd64:1
         ports:
         - containerPort: 8080
-          name: http
-          protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: kuard
+  name: kuard-lb-internal
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   labels:
