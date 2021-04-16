@@ -6,6 +6,9 @@ Run MySQL Client:
 Run busybox with Curl:
 `kubectl run -i --tty busybox-curl --image=odise/busybox-curl --restart=Never --rm -- sh`
 
+Run ubuntu:
+`kubectl run -i --tty ubuntu --image=ubuntu --restart=Never --rm -- sh`
+
 Another Image with curl:
 `kubectl run curl --image=appropriate/curl -i -t --restart= --rm --command -- sh`
 
