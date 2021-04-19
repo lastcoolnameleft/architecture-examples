@@ -1,4 +1,13 @@
-#  The easiest way is to install the Helm charts for each
+# Multiple Custom Domains with Front Door + AKS + Ingress
+
+# Intent
+
+This walkthrough is designed to show using FrontDoor to proxy all traffic before it hits an AKS cluster using Ingress with multiple domains (one domain in each Namespace)
+
+For Reference:
+* https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain
+
+# Setup Ingress
 
 ```shell
 INGRESS_IP=$(kgsvc -n ingress-basic nginx-ingress-ingress-nginx-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)
@@ -39,6 +48,8 @@ curl -H "Host: $NAME2.$CUSTOM_DOMAIN" http://$INGRESS_IP
 ```
 
 ## Setup Front Door
+
+NOTE: I have noticed Front Door taking ~10 minutes to propagate the changes, even after saving the configuration is complete.
 
 ![Front Door Designer](images/fd-designer.png)
 ![Front Door Custom Domain](images/fd-custom-domain-settings.png)
