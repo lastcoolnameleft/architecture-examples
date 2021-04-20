@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuard-deployment
+  namespace: traefik
+  labels:
+    app: kuard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuard
+  template:
+    metadata:
+      labels:
+        app: kuard
+    spec:
+      containers:
+      - name: kuard
+        image: gcr.io/kuar-demo/kuard-amd64:1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuard
+  namespace: traefik
+  labels:
+    name: kuard
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: kuard
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ipwhitelist
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 127.0.0.1/32
+      - 192.168.1.7
+      - 47.185.206.35/32
+      - 108.199.172.172
+      - 144.121.43.3
+---
+# All resources definition must be declared
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kuard
+  namespace: traefik
+spec:
+  routes:
+  - kind: Rule
+    #match: "(Host(`kuard.52.171.122.235.nip.io`))"
+    match: "(Host(`kuard.52.171.122.235.nip.io`) && Headers(`app`, `tommy`))"
+    priority: 10
+    middlewares:
+    - name: ipwhitelist
+      namespace: traefik
+    services:
+    - kind: Service
+      name: kuard
+      namespace: traefik
+      passHostHeader: true
+      port: 80
+      responseForwarding:
+        flushInterval: 1ms
+      strategy: RoundRobin
+      weight: 10
+---
