@@ -14,9 +14,11 @@ This goal of this document is to provide a reference architecture using the foll
 ## Architecture
 
 Overall Ingress Architecture
+
 ![Ingress](ingress.svg)
 
 Azure Network Architecture
+
 ![Network](networking.svg)
 
 If you are interested in seeing more detail, view the [Ingress Drawio file](ingress.draw.io) using the [VSCode Draw.io extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio).
