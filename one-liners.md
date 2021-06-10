@@ -25,3 +25,5 @@ Run on host to see traffic on port:  `sudo tcpdump -i eth0 -s 1500 port $PORT`
 Get all pods on a node: `kgpo --all-namespaces --field-selector spec.nodeName=$NODE -o wide`
 
 Delete all completed pods: `kubectl delete pod --field-selector=status.phase==Succeeded`
+
+Get the Public IP from a Service: `kubectl get svc web -o=jsonpath='{.status.loadBalancer.ingress[0].ip}'`
