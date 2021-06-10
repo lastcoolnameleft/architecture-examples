@@ -6,6 +6,10 @@ This example is for a single-tenant application deployed to provide multi-tenanc
 * Each instance of the application is logically separated from the others
 * Each instance of the application is publicly available once the deployment is complete
 
+## Architecture
+
+![](multi-tenant.svg)
+
 ## Overview
 
 This example contains a bash script and Helm chart for deploying a single-tenant application as a multi-tenant environemnt.  For this example, I use [kuard](https://github.com/kubernetes-up-and-running/kuard) because it's easy to see which container the application is routing to.

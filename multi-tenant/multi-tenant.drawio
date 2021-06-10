@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="HlzVMpEKUvmks-eyj2rE" name="Page-1">
-        <mxGraphModel dx="874" dy="1626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2552" dy="2085" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="106" value="Grouping" parent="0"/>
@@ -13,11 +13,14 @@
                 <mxCell id="175" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.565;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" parent="106" source="162" target="82" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="181" value="service&lt;br&gt;account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.005;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.995;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="106" source="94" target="9">
+                <mxCell id="181" value="service&lt;br&gt;account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.005;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.995;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;" parent="106" source="94" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="182" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.005;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.995;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="106" source="94" target="9">
+                <mxCell id="182" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.005;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.995;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;" parent="106" source="94" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="187" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="106">
+                    <mxGeometry x="-10" y="-180" width="1990" height="1340" as="geometry"/>
                 </mxCell>
                 <mxCell id="1" value="Content" parent="0"/>
                 <mxCell id="5" value="AKS Cluster" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/containers/Kubernetes_Services.svg;" parent="1" vertex="1">
@@ -452,7 +455,7 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="183" value="&lt;h1&gt;Scenarios&lt;/h1&gt;&lt;div&gt;1. Single tenant app moved to K8S and want to use single cluster to house multiple instances of app, one for each tenant&lt;/div&gt;&lt;div&gt;2. Enterprise has single cluster with different teams, each using single namespace. (e.g. dev and test, or one NS per Business Unit)&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                <mxCell id="183" value="&lt;h1&gt;Scenarios&lt;/h1&gt;&lt;div&gt;1. Single tenant app moved to K8S and want to use single cluster to house multiple instances of app, one for each tenant&lt;/div&gt;&lt;div&gt;2. Enterprise has single cluster with different teams, each using single namespace. (e.g. dev and test, or one NS per Business Unit)&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1440" y="540" width="520" height="190" as="geometry"/>
                 </mxCell>
             </root>
