@@ -11,7 +11,7 @@
                     <mxGeometry x="-110" y="80" width="410" height="400" as="geometry"/>
                 </mxCell>
                 <mxCell id="92" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="370" y="120" width="330" height="360" as="geometry"/>
+                    <mxGeometry x="370" y="80" width="330" height="400" as="geometry"/>
                 </mxCell>
                 <mxCell id="91" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="460" y="230" width="210" height="210" as="geometry"/>
@@ -43,8 +43,8 @@
                 <mxCell id="54" value="= VM Scale Set" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="830" y="13" width="100" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="59" value="&lt;font style=&quot;font-size: 48px&quot;&gt;CAPI/CAPZ&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="250" y="-105" width="270" height="30" as="geometry"/>
+                <mxCell id="59" value="&lt;font style=&quot;font-size: 48px&quot;&gt;CAPI / CAPZ&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="-105" width="300" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="&lt;font style=&quot;font-size: 24px&quot;&gt;LEGEND&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="790" y="-110" width="110" height="20" as="geometry"/>
@@ -52,16 +52,16 @@
                 <mxCell id="64" value="&lt;h1&gt;&lt;span&gt;Scenarios&lt;/span&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span style=&quot;font-size: 12px ; font-weight: normal&quot;&gt;1.) Manage your Kubernetes clusters just like Kubernetes resources (declaratively)&lt;/span&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="755" y="620" width="520" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="73">
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.786;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="73" target="105">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="350" y="122.5" as="targetPoint"/>
                         <Array as="points">
                             <mxPoint x="330" y="218"/>
-                            <mxPoint x="330" y="123"/>
+                            <mxPoint x="330" y="90"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="87" value="5.) Create Azure Resources&lt;br&gt;6.) Run K8S on Nodes" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="86">
+                <mxCell id="87" value="5.) Create Azure Resources" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="86">
                     <mxGeometry x="0.1311" y="-2" relative="1" as="geometry">
                         <mxPoint x="-52" y="-7.17" as="offset"/>
                     </mxGeometry>
@@ -79,16 +79,8 @@
                         <mxPoint x="3" y="-83.33" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="75" target="73">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="80" value="2.) clusterctl init&lt;br&gt;3.) clusterctl config cluster capi-quickstart&lt;br&gt;4.) kubectl apply -f capi-quickstart.yaml" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="79">
-                    <mxGeometry x="-0.242" y="-1" relative="1" as="geometry">
-                        <mxPoint x="-77.17" y="5" as="offset"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="75" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/preview/Azure_Cloud_Shell.svg;" vertex="1" parent="1">
-                    <mxGeometry x="-40" y="327.5" width="68" height="48" as="geometry"/>
+                    <mxGeometry x="-50" y="392" width="68" height="48" as="geometry"/>
                 </mxCell>
                 <mxCell id="88" value="capi-quickstart" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" vertex="1" parent="1">
                     <mxGeometry x="425" y="198" width="68" height="64" as="geometry"/>
@@ -104,6 +96,14 @@
                 </mxCell>
                 <mxCell id="96" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="100" y="110" width="170" height="194" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.608;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="73" target="52">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="&lt;span style=&quot;text-align: left&quot;&gt;6.) Manage K8S on Nodes&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="107">
+                    <mxGeometry x="0.1719" y="3" relative="1" as="geometry">
+                        <mxPoint y="-1" as="offset"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="73" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" vertex="1" parent="1">
                     <mxGeometry x="117.5" y="188" width="135" height="60" as="geometry"/>
@@ -135,10 +135,18 @@
                     <mxGeometry x="833.13" y="-53" width="90" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="105" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
-                    <mxGeometry x="350" y="100" width="50" height="35" as="geometry"/>
+                    <mxGeometry x="350" y="62.5" width="50" height="35" as="geometry"/>
                 </mxCell>
                 <mxCell id="106" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
                     <mxGeometry x="781.5699999999999" y="135" width="50" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="75" target="73">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="2.) clusterctl init&lt;br&gt;3.) clusterctl config cluster capi-quickstart&lt;br&gt;4.) kubectl apply -f capi-quickstart.yaml" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="79">
+                    <mxGeometry x="-0.242" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-64.67" y="-57" as="offset"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
