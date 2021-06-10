@@ -131,8 +131,8 @@
                 <mxCell id="102" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
                     <mxGeometry x="782.61" y="-70" width="42.599999999999994" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="103" value="= User Desktop" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="838.13" y="-53" width="100" height="20" as="geometry"/>
+                <mxCell id="103" value="= Docker Host" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="833.13" y="-53" width="90" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="105" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
                     <mxGeometry x="350" y="100" width="50" height="35" as="geometry"/>
