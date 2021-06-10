@@ -22,8 +22,8 @@
                 <mxCell id="39" value="= Resource Group" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="840" y="80" width="110" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="&amp;nbsp;= Azure Resource Provider" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="833.13" y="146" width="160" height="20" as="geometry"/>
+                <mxCell id="44" value="&amp;nbsp;= Azure Subscription" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="833.4" y="142.5" width="130" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="45" value="= Kubernetes API" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="840" y="210" width="110" height="20" as="geometry"/>
@@ -52,8 +52,9 @@
                 <mxCell id="64" value="&lt;h1&gt;&lt;span&gt;Scenarios&lt;/span&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span style=&quot;font-size: 12px ; font-weight: normal&quot;&gt;1.) Manage your Kubernetes clusters just like Kubernetes resources (declaratively)&lt;/span&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
                     <mxGeometry x="755" y="620" width="520" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="73" target="85">
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="73">
                     <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="350" y="122.5" as="targetPoint"/>
                         <Array as="points">
                             <mxPoint x="330" y="218"/>
                             <mxPoint x="330" y="123"/>
@@ -89,9 +90,6 @@
                 <mxCell id="75" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/preview/Azure_Cloud_Shell.svg;" vertex="1" parent="1">
                     <mxGeometry x="-40" y="327.5" width="68" height="48" as="geometry"/>
                 </mxCell>
-                <mxCell id="85" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.vaisulweb.com/wp-content/uploads/2019/02/azure_logo_794_new.png;" vertex="1" parent="1">
-                    <mxGeometry x="350" y="97.5" width="50" height="50" as="geometry"/>
-                </mxCell>
                 <mxCell id="88" value="capi-quickstart" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" vertex="1" parent="1">
                     <mxGeometry x="425" y="198" width="68" height="64" as="geometry"/>
                 </mxCell>
@@ -121,9 +119,6 @@
                 <mxCell id="97" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" vertex="1" parent="1">
                     <mxGeometry x="774.69" y="62.5" width="58.44" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="98" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.vaisulweb.com/wp-content/uploads/2019/02/azure_logo_794_new.png;" vertex="1" parent="1">
-                    <mxGeometry x="783.13" y="131" width="50" height="50" as="geometry"/>
-                </mxCell>
                 <mxCell id="99" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Kubernetes.svg;" vertex="1" parent="1">
                     <mxGeometry x="783.13" y="196" width="50" height="48" as="geometry"/>
                 </mxCell>
@@ -138,6 +133,12 @@
                 </mxCell>
                 <mxCell id="103" value="= User Desktop" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="838.13" y="-53" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="100" width="50" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
+                    <mxGeometry x="781.5699999999999" y="135" width="50" height="35" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
