@@ -1,58 +1,58 @@
-<mxfile>
+<mxfile host="65bd71144e">
     <diagram id="kgB1ClSXhv1oSVVSdbCW" name="Page-1">
-        <mxGraphModel dx="2552" dy="2085" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1712" dy="1813" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="104" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="104" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-170" y="-150" width="1440" height="900" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="93" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-110" y="80" width="410" height="400" as="geometry"/>
                 </mxCell>
-                <mxCell id="92" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="92" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="370" y="80" width="330" height="400" as="geometry"/>
                 </mxCell>
-                <mxCell id="91" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="91" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="460" y="230" width="210" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="&lt;h1&gt;Deployment Flow&lt;/h1&gt;&lt;div&gt;1.) User creates the Kind Cluster&lt;/div&gt;&lt;div&gt;2.) User initializes the CAPI Cluster&lt;/div&gt;&lt;div&gt;3.) User create a cluster definition using the CAPI Quickstart flavor&lt;/div&gt;&lt;div&gt;4.) User applies the cluster definition to teh CAPI Cluster&lt;/div&gt;&lt;div&gt;5.) CAPI Cluster creates Azure Resources&lt;/div&gt;&lt;div&gt;6.) CAPI runs Kubeadm to bootstrap the cluster&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                <mxCell id="37" value="&lt;h1&gt;Deployment Flow&lt;/h1&gt;&lt;div&gt;1.) User creates the Kind Cluster&lt;/div&gt;&lt;div&gt;2.) User initializes the CAPI Cluster&lt;/div&gt;&lt;div&gt;3.) User create a cluster definition using the CAPI Quickstart flavor&lt;/div&gt;&lt;div&gt;4.) User applies the cluster definition to teh CAPI Cluster&lt;/div&gt;&lt;div&gt;5.) CAPI Cluster creates Azure Resources&lt;/div&gt;&lt;div&gt;6.) CAPI runs Kubeadm to bootstrap the cluster&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="755" y="450" width="520" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="= Resource Group" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="39" value="= Resource Group" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="840" y="80" width="110" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="&amp;nbsp;= Azure Subscription" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="44" value="&amp;nbsp;= Azure Subscription" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="833.4" y="142.5" width="130" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="= Kubernetes API" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="45" value="= Kubernetes API" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="840" y="210" width="110" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="= Docker" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="46" value="= Docker" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="840" y="262" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="= Shell" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="47" value="= Shell" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="840" y="326" width="50" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="K8S Nodes" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/VM_Scale_Sets.svg;" vertex="1" parent="1">
+                <mxCell id="52" value="K8S Nodes" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/VM_Scale_Sets.svg;" parent="1" vertex="1">
                     <mxGeometry x="530" y="302" width="68" height="68" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/VM_Scale_Sets.svg;" vertex="1" parent="1">
+                <mxCell id="53" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/VM_Scale_Sets.svg;" parent="1" vertex="1">
                     <mxGeometry x="780" y="-2" width="50" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="= VM Scale Set" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="830" y="13" width="100" height="20" as="geometry"/>
+                <mxCell id="54" value="= Machine deployment (VM Scale Set or VM)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="833.4" y="13" width="260" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="59" value="&lt;font style=&quot;font-size: 48px&quot;&gt;CAPI / CAPZ&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="59" value="&lt;font style=&quot;font-size: 48px&quot;&gt;CAPI / CAPZ&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="235" y="-105" width="300" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="60" value="&lt;font style=&quot;font-size: 24px&quot;&gt;LEGEND&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="60" value="&lt;font style=&quot;font-size: 24px&quot;&gt;LEGEND&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="790" y="-110" width="110" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" value="&lt;h1&gt;&lt;span&gt;Scenarios&lt;/span&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span style=&quot;font-size: 12px ; font-weight: normal&quot;&gt;1.) Manage your Kubernetes clusters just like Kubernetes resources (declaratively)&lt;/span&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                <mxCell id="64" value="&lt;h1&gt;&lt;span&gt;Scenarios&lt;/span&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span style=&quot;font-size: 12px ; font-weight: normal&quot;&gt;1.) Manage your Kubernetes clusters just like Kubernetes resources (declaratively)&lt;/span&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="755" y="620" width="520" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.786;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="73" target="105">
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.786;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="73" target="105" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="350" y="122.5" as="targetPoint"/>
                         <Array as="points">
@@ -61,12 +61,12 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="87" value="5.) Create Azure Resources" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="86">
+                <mxCell id="87" value="5.) Create Azure Resources" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" parent="86" vertex="1" connectable="0">
                     <mxGeometry x="0.1311" y="-2" relative="1" as="geometry">
                         <mxPoint x="-52" y="-7.17" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.029;entryY=0.42;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="75" target="65">
+                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.029;entryY=0.42;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="75" target="65" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-6" y="105.5"/>
@@ -74,76 +74,76 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="77" value="1.) kind create cluster" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="76">
+                <mxCell id="77" value="1.) kind create cluster" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="76" vertex="1" connectable="0">
                     <mxGeometry x="-0.5668" y="3" relative="1" as="geometry">
                         <mxPoint x="3" y="-83.33" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="75" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/preview/Azure_Cloud_Shell.svg;" vertex="1" parent="1">
+                <mxCell id="75" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/preview/Azure_Cloud_Shell.svg;" parent="1" vertex="1">
                     <mxGeometry x="-50" y="392" width="68" height="48" as="geometry"/>
                 </mxCell>
-                <mxCell id="88" value="capi-quickstart" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" vertex="1" parent="1">
+                <mxCell id="88" value="capi-quickstart" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" parent="1" vertex="1">
                     <mxGeometry x="425" y="198" width="68" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="89" value="capi-quickstart" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" vertex="1" parent="1">
+                <mxCell id="89" value="capi-quickstart" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" parent="1" vertex="1">
                     <mxGeometry x="780" y="370" width="53.13" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="90" value="= Resource Group" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="90" value="= Resource Group" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="833.13" y="385" width="110" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
+                <mxCell id="95" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" parent="1" vertex="1">
                     <mxGeometry x="-130" y="60" width="42.599999999999994" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="96" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="96" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="100" y="110" width="170" height="194" as="geometry"/>
                 </mxCell>
-                <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.608;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="73" target="52">
+                <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.608;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="73" target="52" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="108" value="&lt;span style=&quot;text-align: left&quot;&gt;6.) Manage K8S on Nodes&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="107">
+                <mxCell id="108" value="&lt;span style=&quot;text-align: left&quot;&gt;6.) Manage K8S on Nodes&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="107" vertex="1" connectable="0">
                     <mxGeometry x="0.1719" y="3" relative="1" as="geometry">
                         <mxPoint y="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="73" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" vertex="1" parent="1">
+                <mxCell id="73" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" parent="1" vertex="1">
                     <mxGeometry x="117.5" y="188" width="135" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="74" value="CAPI&lt;br&gt;CAPZ" style="dashed=0;connectable=0;html=1;fillColor=#5184F3;strokeColor=none;shape=mxgraph.gcp2.kubernetes_logo;part=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=5;fontColor=#999999;fontSize=12;" vertex="1" parent="73">
+                <mxCell id="74" value="CAPI&lt;br&gt;CAPZ" style="dashed=0;connectable=0;html=1;fillColor=#5184F3;strokeColor=none;shape=mxgraph.gcp2.kubernetes_logo;part=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=5;fontColor=#999999;fontSize=12;" parent="73" vertex="1">
                     <mxGeometry width="45" height="43.65" relative="1" as="geometry">
                         <mxPoint x="5" y="7.675000000000001" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="65" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;" vertex="1" parent="1">
+                <mxCell id="65" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
                     <mxGeometry x="80" y="87.5" width="53.66" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="97" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" vertex="1" parent="1">
+                <mxCell id="97" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" parent="1" vertex="1">
                     <mxGeometry x="774.69" y="62.5" width="58.44" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="99" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Kubernetes.svg;" vertex="1" parent="1">
+                <mxCell id="99" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Kubernetes.svg;" parent="1" vertex="1">
                     <mxGeometry x="783.13" y="196" width="50" height="48" as="geometry"/>
                 </mxCell>
-                <mxCell id="100" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;" vertex="1" parent="1">
-                    <mxGeometry x="779.74" y="250" width="53.66" height="44" as="geometry"/>
+                <mxCell id="100" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
+                    <mxGeometry x="779.74" y="258" width="53.66" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="101" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/preview/Azure_Cloud_Shell.svg;" vertex="1" parent="1">
+                <mxCell id="101" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/preview/Azure_Cloud_Shell.svg;" parent="1" vertex="1">
                     <mxGeometry x="779.74" y="317" width="51" height="36" as="geometry"/>
                 </mxCell>
-                <mxCell id="102" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
+                <mxCell id="102" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" parent="1" vertex="1">
                     <mxGeometry x="782.61" y="-70" width="42.599999999999994" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="103" value="= Docker Host" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="833.13" y="-53" width="90" height="20" as="geometry"/>
+                <mxCell id="103" value="= Docker Host" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="-53" width="90" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="105" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
+                <mxCell id="105" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" parent="1" vertex="1">
                     <mxGeometry x="350" y="62.5" width="50" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="106" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" vertex="1" parent="1">
+                <mxCell id="106" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_subscription;" parent="1" vertex="1">
                     <mxGeometry x="781.5699999999999" y="135" width="50" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="75" target="73">
+                <mxCell id="79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="75" target="73" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="80" value="2.) clusterctl init&lt;br&gt;3.) clusterctl config cluster capi-quickstart&lt;br&gt;4.) kubectl apply -f capi-quickstart.yaml" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="79">
+                <mxCell id="80" value="2.) clusterctl init&lt;br&gt;3.) clusterctl config cluster capi-quickstart&lt;br&gt;4.) kubectl apply -f capi-quickstart.yaml" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];" parent="79" vertex="1" connectable="0">
                     <mxGeometry x="-0.242" y="-1" relative="1" as="geometry">
                         <mxPoint x="-64.67" y="-57" as="offset"/>
                     </mxGeometry>
