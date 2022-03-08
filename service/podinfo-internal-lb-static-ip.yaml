@@ -55,7 +55,7 @@ spec:
         - --level=info
         - --random-delay=false
         - --random-error=false
-        - --ui-message=podinfo-azure-external-lb
+        - --ui-message=podinfo-internal-lb-static-ip
         env:
         - name: PODINFO_UI_COLOR
           value: "#34577c"
