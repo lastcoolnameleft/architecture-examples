@@ -233,9 +233,12 @@ echo "From your Private Endpoint VM run: curl $PE_IP:$SUFFIX"
 ```
 
 
-## REmove
+## Untested Content
 
-# Now create the Private DNS Zone
+# Create the Private DNS Zone
+
+At this time, I don't think you can use Private DNS Zone with a service backed by PLS
+
 ```
 PRIVATE_DNS_ZONE_NAME="privatelink.lastcoolnameleft.net"
 az network private-dns zone create \
@@ -258,82 +261,4 @@ az network private-endpoint dns-zone-group create \
     --name $DNS_ZONE_GROUP \
     --private-dns-zone "$PRIVATE_DNS_ZONE_NAME" \
     --zone-name $PE_DNS_ZONE_NAME
-```
-
-## Install Steps - Create the PE --- REMOVE
-
-Inspired by: https://docs.microsoft.com/en-us/azure/private-link/create-private-endpoint-cli
-
-```
-PE_RG=private-endpoint-rg
-az group create \
-    --name $PE_RG \
-    --location $LOCATION
-
-PE_VNET=pe-vnet
-PE_SUBNET=pe-subnet
-az network vnet create \
-    --resource-group $PE_RG \
-    --name $PE_VNET \
-    --address-prefixes 10.0.0.0/16 \
-    --subnet-name $PE_SUBNET \
-    --subnet-prefixes 10.0.0.0/24
-
-az network vnet subnet update \
-    --name $PE_SUBNET \
-    --resource-group $PE_RG \
-    --vnet-name $PE_VNET \
-    --disable-private-endpoint-network-policies true
-
-BASTION_IP=bastion-pip
-az network public-ip create \
-    --resource-group $PE_RG \
-    --name $BASTION_IP \
-    --sku Standard
-
-# This must be hard coded
-BASTION_SUBNET=AzureBastionSubnet
-az network vnet subnet create \
-    --resource-group $PE_RG \
-    --name $BASTION_SUBNET \
-    --vnet-name $PE_VNET \
-    --address-prefixes 10.0.1.0/24
-
-BASTION_NAME=bastion
-az network bastion create \
-    --resource-group $PE_RG  \
-    --name $BASTION_NAME \
-    --public-ip-address $BASTION_IP \
-    --vnet-name $PE_VNET
-
-VM_NAME=ubuntu
-az vm create \
-    --resource-group $PE_RG \
-    --name ubuntu \
-    --image UbuntuLTS \
-    --public-ip-address "" \
-    --vnet-name $PE_VNET \
-    --subnet $PE_SUBNET \
-    --admin-username $USER \
-    --ssh-key-values ~/.ssh/id_rsa.pub
-
-PLS_ID=$(az network private-link-service show \
-    --name $PLS_NAME \
-    --resource-group $AKS_MC_RG \
-    --query id \
-    --output tsv)
-echo $PLS_ID
-
-PE_CONN_NAME=pe-conn
-PE_NAME=pe
-az network private-endpoint create \
-    --connection-name $PE_CONN_NAME \
-    --name $PE_NAME \
-    --private-connection-resource-id $PLS_ID \
-    --resource-group $PE_RG \
-    --subnet $PE_SUBNET \
-    --manual-request false \
-    --vnet-name $PE_VNET
-
-
 ```
