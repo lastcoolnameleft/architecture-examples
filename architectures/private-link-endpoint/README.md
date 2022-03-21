@@ -68,6 +68,7 @@ helm upgrade --install --wait podinfo-ingress-internal-lb \
     --set ui.message=podinfo-ingress-internal-lb \
     --set ingress.enabled=true \
     --set ingress.className=nginx \
+    --set tcp.echo=echo \
     podinfo/podinfo
 INGRESS_HOST=$(kubectl get ingress podinfo-ingress-internal-lb -o json  | jq -r '.spec.rules[0].host')
 echo $INGRESS_HOST
