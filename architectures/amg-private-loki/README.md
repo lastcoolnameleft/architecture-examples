@@ -4,7 +4,7 @@ With the proliferation of cloud providers offering managed services around Open 
 
 At this time, Azure offers a managed Kubernetes (AKS) and Grafana (Azure Managed Grafana), but not Loki.  To best architect this, we want to secure this by not publicly exposing the Loki instance and using a Managed Endpoint.
 
-There’s good documentation around this on the Microsoft Learn docs; however, one caveat which may throw some people off is that the Private Endpoint must be in a different subnet than the Load Balancer.  (see Restrictions in [Azure Private Link Service Integration | Cloud Provider Azure (k8s.io)](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/))
+There’s good documentation around this on the Microsoft Learn docs; however, one caveat which may throw some people off is that the Private Endpoint must be in a different subnet than the Load Balancer.  See Restrictions in [Azure Private Link Service Integration - Cloud Provider Azure](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/).
 
 These steps can be walked through to create your own instance of this architecture:
 
