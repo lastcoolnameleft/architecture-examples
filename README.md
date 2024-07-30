@@ -1,5 +1,3 @@
-# Kubernetes Examples
-
 # Intent
 
 This repo is designed as a reference point for common Kubernetes architectures and tasks which I observe as a Cloud Solution Architect working on AKS
