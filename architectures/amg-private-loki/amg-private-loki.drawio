@@ -16,9 +16,6 @@
                 <mxCell id="5" value="aks-vnet" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks.svg;" parent="1" vertex="1">
                     <mxGeometry x="-647" y="770" width="67" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="aks-subnet" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks_Classic.svg;" parent="1" vertex="1">
-                    <mxGeometry x="-597" y="840" width="67" height="40" as="geometry"/>
-                </mxCell>
                 <mxCell id="34" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-565.1" y="1220" width="635.1" height="160" as="geometry"/>
                 </mxCell>
@@ -75,6 +72,9 @@
                 </mxCell>
                 <mxCell id="27" style="edgeStyle=none;html=1;" parent="1" source="28" target="24" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="aks-subnet" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks_Classic.svg;" parent="1" vertex="1">
+                    <mxGeometry x="-597" y="840" width="67" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
