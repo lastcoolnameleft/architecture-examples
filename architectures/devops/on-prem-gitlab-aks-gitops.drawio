@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="NU2T0rzDUGyVkfuzdm1V" name="Page-1">
-        <mxGraphModel dx="2107" dy="956" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1964" dy="951" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -28,7 +28,7 @@
                 <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.267;entryY=1.117;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="12" target="18" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="Windchill SCM&lt;br&gt;All app code" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.git_repository;" parent="1" vertex="1">
+                <mxCell id="12" value="SCM&lt;br&gt;All app code" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.git_repository;" parent="1" vertex="1">
                     <mxGeometry x="140" y="270" width="50" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="" style="group" parent="1" vertex="1" connectable="0">
@@ -41,13 +41,13 @@
                     <mxGeometry width="43.13" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="" style="group" parent="20" vertex="1" connectable="0">
-                    <mxGeometry x="31.569999999999993" y="40" width="100" height="70" as="geometry"/>
+                    <mxGeometry x="31.569999999999993" y="40" width="105" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="" style="html=1;aspect=fixed;strokeColor=none;shadow=0;align=center;verticalAlign=top;fillColor=#3B8DF1;shape=mxgraph.gcp2.clock" parent="19" vertex="1">
                     <mxGeometry x="30" width="40" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="scheduled build&lt;br&gt;6hrs" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="19" vertex="1">
-                    <mxGeometry y="40" width="100" height="30" as="geometry"/>
+                <mxCell id="18" value="scheduled build" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="19" vertex="1">
+                    <mxGeometry x="-5" y="40" width="110" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" style="edgeStyle=none;html=1;entryX=0.175;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="16" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -99,7 +99,7 @@
                 <mxCell id="35" value="Cluster Operator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="-50" y="490" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="&lt;h1&gt;Compliance&lt;/h1&gt;&lt;p&gt;&lt;span&gt;Don't have to work with Fedramp Hi for 3yrs&lt;/span&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                <mxCell id="42" value="&lt;h1&gt;Compliance&lt;/h1&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="900" y="110" width="390" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="43" value="&lt;h1&gt;Hybrid&lt;/h1&gt;&lt;p&gt;Investigated ExpressRoute&lt;/p&gt;&lt;p&gt;Subscription managed by IT.&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
