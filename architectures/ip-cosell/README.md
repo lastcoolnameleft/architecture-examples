@@ -8,19 +8,20 @@ This page is designed to provide an example reference architecture diagram using
 
 This architecture is an example SaaS architecture where a customer (also in Azure) uses Private Endpoint to connect to the ISV's API.
 
-This boxes in red are the ISV's Intellectual Property (IP) and are used to signify where it runs.
-
-Inside the ISV's subscription are the following:
+This example diagram references:
 * Azure Subscription
-* AKS
-    * Ingress Controller
-    * App pod (IP)
-    * Data pod (IP)
-* Azure Load Balancer
-* CosmosDB
-* Storage Account
-* Azure Key Vault
+    * AKS
+        * Ingress Controller
+        * App pod (IP)
+        * Data pod (IP)
+    * Azure Load Balancer
+    * CosmosDB
+    * Storage Account
+    * Azure Key Vault
+* Customer Subscription (optional)
 
-You can use this reference architecture by [downloading the Draw.io](sample-reference-architecture.drawio) file and modifying it to reflect your architecture.
+__NOTE__: The red boxes are the ISV's Intellectual Property (IP) and are used to signify where it runs.
+
+You can modify this reference architecture by [downloading the Draw.io file for this image](sample-reference-architecture.drawio) and modifying it to reflect your architecture.
 
 ![](sample-reference-architecture.png)
