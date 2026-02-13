@@ -1,0 +1,129 @@
+# =============================================================================
+# Namespace RoleBinding Templates
+# =============================================================================
+# These RoleBindings connect the namespace-scoped Roles to Entra ID groups.
+# Apply these to each application namespace during namespace provisioning.
+#
+# USAGE:
+# 1. Replace <NAMESPACE> with the target application namespace name
+# 2. Replace <GROUP_OBJECT_ID> placeholders with actual Entra ID group object IDs
+# 3. Apply to the target namespace: kubectl apply -f <file> -n <namespace>
+#
+# IMPORTANT:
+# - These bindings should NEVER be applied to kube-system or other system namespaces
+# - The Entra ID groups should be managed via PIM for JIT elevation
+# =============================================================================
+
+---
+# =============================================================================
+# ROLEBINDING: app-namespace-operator-binding
+# =============================================================================
+# Binds app-namespace-operator role to Application Support (L2) ONLY
+# Cloud Deployment uses project-deployment-temp role instead
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: app-namespace-operator-binding
+  # Apply to target namespace: kubectl apply -f <file> -n <NAMESPACE>
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/binding-type: namespace
+  annotations:
+    description: "Binds app operator access to L2 support engineers"
+    iam.partner.com/jit-required: "true"
+subjects:
+  # Entra ID Group: AKS-iam-sandbox-aks-AppSupport-L2-Elevated
+  - kind: Group
+    name: "f357733b-357a-4a36-8422-cc700f018c84"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: app-namespace-operator
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# =============================================================================
+# ROLEBINDING: l1-restricted-operator-binding
+# =============================================================================
+# Binds l1-restricted-operator role to Command Centre Engineer (L1) group
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: l1-restricted-operator-binding
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/binding-type: namespace
+  annotations:
+    description: "Binds restricted L1 access to Command Centre team"
+    iam.partner.com/jit-required: "true"
+subjects:
+  # Entra ID Group: AKS-iam-sandbox-aks-CommandCentre-L1-Elevated
+  - kind: Group
+    name: "0a413af6-6615-4307-8e7c-5dd885747b72"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: l1-restricted-operator
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# =============================================================================
+# ROLEBINDING: project-deployment-temp-binding
+# =============================================================================
+# Binds project-deployment-temp role to Project Deployment Engineers
+# This binding should be created/removed as needed for specific projects
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: project-deployment-temp-binding
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/binding-type: namespace
+    iam.partner.com/temporary: "true"
+  annotations:
+    description: "Temporary deployment access for project engineers"
+    iam.partner.com/jit-required: "true"
+    iam.partner.com/max-duration: "8h"
+subjects:
+  # Entra ID Group: AKS-iam-sandbox-aks-CloudDeployment-Elevated (reused for demo)
+  - kind: Group
+    name: "e019cae8-4e7f-460e-b628-1d6a3b1d3661"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: project-deployment-temp
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# =============================================================================
+# ROLEBINDING: namespace-readonly-binding
+# =============================================================================
+# Provides read-only access to application namespace for all team members
+# This can be a standing (non-JIT) assignment for baseline visibility
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: namespace-readonly-binding
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/binding-type: namespace
+  annotations:
+    description: "Read-only access for baseline namespace visibility"
+    iam.partner.com/jit-required: "false"
+subjects:
+  # Entra ID Group: AKS-iam-sandbox-aks-ClusterViewer
+  - kind: Group
+    name: "7e4b9f98-8052-44dd-9473-f895ff3a3fc1"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: l1-restricted-operator  # Reuse L1 role for read-only (it's read-focused)
+  apiGroup: rbac.authorization.k8s.io

@@ -1,0 +1,417 @@
+# =============================================================================
+# Namespace-Scoped RBAC Roles
+# =============================================================================
+# These Roles are namespace-scoped and should be applied to each application
+# namespace. They provide least-privilege access aligned with persona requirements.
+#
+# IMPORTANT:
+# - These are Role definitions (namespace-scoped), NOT ClusterRoles
+# - Apply corresponding RoleBindings in each target namespace
+# - kube-system access is explicitly NOT provided by these roles
+# =============================================================================
+
+---
+# =============================================================================
+# ROLE: app-namespace-operator
+# =============================================================================
+# Purpose: Full operational access within application namespaces
+# Personas: 
+#   - Application Support Engineer (L2) - elevated via JIT
+#   - Cloud Deployment Engineer - elevated via JIT
+# Scope: Namespace only (NOT cluster-wide, NOT kube-system)
+# Permissions:
+#   - Get/List/Watch on workloads, configs, logs
+#   - Pod restart (delete pods)
+#   - Scale deployments/statefulsets
+#   - Pod exec for troubleshooting
+#   - NO secrets creation/modification (can only view)
+#   - NO RBAC modification
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: app-namespace-operator
+  # NOTE: This will be in the target namespace, specified during kubectl apply
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/role-type: namespace
+    iam.partner.com/privilege-level: operator
+  annotations:
+    description: "Full operational access within application namespace"
+    iam.partner.com/jit-required: "true"
+    iam.partner.com/personas: "app-support-l2,cloud-deployment-engineer"
+    iam.partner.com/excludes-namespaces: "kube-system,kube-public,kube-node-lease,gatekeeper-system"
+rules:
+  # ==========================================================================
+  # Core Resources - Operational Access
+  # ==========================================================================
+  
+  # Pods - full operational access including exec and logs
+  - apiGroups: [""]
+    resources:
+      - pods
+    verbs: ["get", "list", "watch", "delete"]  # delete enables pod restart
+  
+  - apiGroups: [""]
+    resources:
+      - pods/log
+    verbs: ["get", "list", "watch"]
+  
+  - apiGroups: [""]
+    resources:
+      - pods/exec
+    verbs: ["create"]  # Enable pod exec for troubleshooting
+  
+  - apiGroups: [""]
+    resources:
+      - pods/portforward
+    verbs: ["create"]  # Enable port-forward for debugging
+  
+  # Services and Endpoints - read + manage
+  - apiGroups: [""]
+    resources:
+      - services
+      - endpoints
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # ConfigMaps - full access for config management
+  - apiGroups: [""]
+    resources:
+      - configmaps
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # Secrets - READ ONLY (no create/update/delete for security)
+  - apiGroups: [""]
+    resources:
+      - secrets
+    verbs: ["get", "list", "watch"]
+  
+  # Service Accounts - read only
+  - apiGroups: [""]
+    resources:
+      - serviceaccounts
+    verbs: ["get", "list", "watch"]
+  
+  # PVCs - operational access
+  - apiGroups: [""]
+    resources:
+      - persistentvolumeclaims
+    verbs: ["get", "list", "watch", "create", "delete"]
+  
+  # Events - read only for troubleshooting
+  - apiGroups: [""]
+    resources:
+      - events
+    verbs: ["get", "list", "watch"]
+  
+  # Resource quotas and limits - read only
+  - apiGroups: [""]
+    resources:
+      - resourcequotas
+      - limitranges
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Workload Resources - Full Access with Scale
+  # ==========================================================================
+  
+  # Deployments - full access including scale
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  - apiGroups: ["apps"]
+    resources:
+      - deployments/scale
+    verbs: ["get", "update", "patch"]  # Enable scaling
+  
+  # StatefulSets - full access including scale
+  - apiGroups: ["apps"]
+    resources:
+      - statefulsets
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  - apiGroups: ["apps"]
+    resources:
+      - statefulsets/scale
+    verbs: ["get", "update", "patch"]  # Enable scaling
+  
+  # ReplicaSets - operational access
+  - apiGroups: ["apps"]
+    resources:
+      - replicasets
+    verbs: ["get", "list", "watch", "delete"]
+  
+  - apiGroups: ["apps"]
+    resources:
+      - replicasets/scale
+    verbs: ["get", "update", "patch"]  # Enable scaling
+  
+  # DaemonSets - read only (usually managed by platform)
+  - apiGroups: ["apps"]
+    resources:
+      - daemonsets
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Batch Resources
+  # ==========================================================================
+  
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # ==========================================================================
+  # Autoscaling Resources
+  # ==========================================================================
+  
+  - apiGroups: ["autoscaling"]
+    resources:
+      - horizontalpodautoscalers
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # ==========================================================================
+  # Policy Resources
+  # ==========================================================================
+  
+  - apiGroups: ["policy"]
+    resources:
+      - poddisruptionbudgets
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # ==========================================================================
+  # Networking Resources
+  # ==========================================================================
+  
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingresses
+      - networkpolicies
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+---
+# =============================================================================
+# ROLE: l1-restricted-operator
+# =============================================================================
+# Purpose: Limited operational access for L1 Command Centre Engineers
+# Personas: Command Centre Engineer (L1)
+# Scope: Namespace only (NOT cluster-wide, NOT kube-system)
+# Permissions:
+#   - Get/List/Watch on workloads, configs, logs
+#   - Pod restart (limited to specific labels/selectors via admission control)
+#   - NO pod exec
+#   - NO secrets access
+#   - NO deployment modifications (only restart pods)
+#   - Runbook-style actions only
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: l1-restricted-operator
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/role-type: namespace
+    iam.partner.com/privilege-level: restricted
+  annotations:
+    description: "Restricted operational access for L1 runbook actions"
+    iam.partner.com/jit-required: "true"
+    iam.partner.com/personas: "command-centre-l1"
+    iam.partner.com/excludes-namespaces: "kube-system,kube-public,kube-node-lease,gatekeeper-system"
+rules:
+  # ==========================================================================
+  # Core Resources - Read Only + Pod Restart
+  # ==========================================================================
+  
+  # Pods - read only (NO delete - L1 should escalate for restarts)
+  - apiGroups: [""]
+    resources:
+      - pods
+    verbs: ["get", "list", "watch"]  # READ ONLY - no delete for L1
+  
+  # Pod logs - read only for troubleshooting
+  - apiGroups: [""]
+    resources:
+      - pods/log
+    verbs: ["get", "list", "watch"]
+  
+  # NO pods/exec - L1 should not exec into containers
+  # NO pods/portforward - L1 should not port-forward
+  
+  # Services and Endpoints - read only
+  - apiGroups: [""]
+    resources:
+      - services
+      - endpoints
+    verbs: ["get", "list", "watch"]
+  
+  # ConfigMaps - read only
+  - apiGroups: [""]
+    resources:
+      - configmaps
+    verbs: ["get", "list", "watch"]
+  
+  # NO secrets access for L1
+  
+  # Events - read only for troubleshooting
+  - apiGroups: [""]
+    resources:
+      - events
+    verbs: ["get", "list", "watch"]
+  
+  # Resource quotas and limits - read only
+  - apiGroups: [""]
+    resources:
+      - resourcequotas
+      - limitranges
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Workload Resources - Read Only
+  # ==========================================================================
+  
+  # Deployments - read only (no modify, only view)
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+      - statefulsets
+      - replicasets
+      - daemonsets
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Batch Resources - Read Only
+  # ==========================================================================
+  
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Autoscaling - Read Only
+  # ==========================================================================
+  
+  - apiGroups: ["autoscaling"]
+    resources:
+      - horizontalpodautoscalers
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Networking - Read Only
+  # ==========================================================================
+  
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingresses
+      - networkpolicies
+    verbs: ["get", "list", "watch"]
+
+---
+# =============================================================================
+# ROLE: project-deployment-temp
+# =============================================================================
+# Purpose: Temporary deployment access for project engineers
+# Personas: Project Deployment Engineer
+# Scope: Specific project namespace only
+# Permissions:
+#   - Deployment and rollout management
+#   - ConfigMap and Secret management (for app config)
+#   - Service management
+#   - Time-limited via PIM assignment
+# NOTE: This role should have time-limited assignment (e.g., 4-8 hours max)
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: project-deployment-temp
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+    iam.partner.com/role-type: namespace
+    iam.partner.com/privilege-level: project-temp
+  annotations:
+    description: "Temporary deployment access for project engineers"
+    iam.partner.com/jit-required: "true"
+    iam.partner.com/max-duration: "8h"
+    iam.partner.com/personas: "project-deployment-engineer"
+rules:
+  # ==========================================================================
+  # Core Resources - Deployment Focused
+  # ==========================================================================
+  
+  # Pods - read only (deployers shouldn't manually delete pods)
+  - apiGroups: [""]
+    resources:
+      - pods
+    verbs: ["get", "list", "watch"]  # READ ONLY - use deployments to manage pods
+  
+  - apiGroups: [""]
+    resources:
+      - pods/log
+    verbs: ["get", "list", "watch"]
+  
+  # Services - full access
+  - apiGroups: [""]
+    resources:
+      - services
+      - endpoints
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # ConfigMaps - full access
+  - apiGroups: [""]
+    resources:
+      - configmaps
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # Secrets - full access (needed for deployments)
+  - apiGroups: [""]
+    resources:
+      - secrets
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # Events
+  - apiGroups: [""]
+    resources:
+      - events
+    verbs: ["get", "list", "watch"]
+  
+  # ==========================================================================
+  # Workload Resources - Full Deployment Access
+  # ==========================================================================
+  
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+      - statefulsets
+      - replicasets
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  - apiGroups: ["apps"]
+    resources:
+      - deployments/scale
+      - statefulsets/scale
+    verbs: ["get", "update", "patch"]
+  
+  # ==========================================================================
+  # Batch Resources
+  # ==========================================================================
+  
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  # ==========================================================================
+  # Networking
+  # ==========================================================================
+  
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingresses
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
