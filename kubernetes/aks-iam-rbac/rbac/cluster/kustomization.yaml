@@ -1,0 +1,23 @@
+# =============================================================================
+# Kustomization File for Cluster-Wide RBAC
+# =============================================================================
+# Use this with kustomize to deploy cluster-wide RBAC resources
+# 
+# Usage:
+#   kubectl apply -k rbac/cluster/
+# =============================================================================
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: aks-iam-cluster-rbac
+  annotations:
+    description: "Cluster-wide RBAC roles and bindings for AKS IAM posture"
+
+resources:
+  - cluster-roles.yaml
+
+commonLabels:
+  app.kubernetes.io/part-of: aks-iam-posture
+  app.kubernetes.io/managed-by: kustomize

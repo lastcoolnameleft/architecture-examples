@@ -1,0 +1,314 @@
+<mxfile host="65bd71144e">
+    <diagram name="AKS IAM Architecture" id="aks-iam-arch-v2">
+        <mxGraphModel dx="4140" dy="2471" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1400" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="AKS IAM Posture - Persona-Based RBAC with Entra ID Integration" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#0078D4;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="20" width="1300" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="azure-cloud" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#0078D4;strokeWidth=3;dashed=1;dashPattern=8 8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="100" width="1820" height="1260" as="geometry"/>
+                </mxCell>
+                <mxCell id="azure-label" value="Microsoft Azure" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#0078D4;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="110" width="200" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="entra-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#0078D4;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="160" width="840" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="entra-icon" value="" style="image;html=1;image=img/lib/azure2/identity/Azure_Active_Directory.svg;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="175" width="68" height="68" as="geometry"/>
+                </mxCell>
+                <mxCell id="entra-title" value="Microsoft Entra ID (Azure Active Directory)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#0078D4;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="190" width="450" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="pim-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="260" width="360" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="pim-title" value="Privileged Identity Management" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#D4670A;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="285" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="pim-settings" value="Just-In-Time Access Configuration&#xa;&#xa;⏱ Max Duration: 4-8 hours&#xa;✓ Approval Required (Cluster Admin)&#xa;📋 Justification Required&#xa;🎫 Ticket Number Required&#xa;🔔 Security Team Notification&#xa;📊 Quarterly Access Reviews&#xa;&#xa;Automatic Revocation on Expiry" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="330" width="320" height="175" as="geometry"/>
+                </mxCell>
+                <mxCell id="groups-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="260" width="380" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="groups-icon" value="" style="image;html=1;image=img/lib/azure2/identity/Groups.svg;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="275" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="groups-title" value="Security Groups (PIM-Eligible)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="285" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="group-cluster-admin" value="AKS-xxx-InfraOps-L2-Elevated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="330" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="group-platform-sre" value="AKS-xxx-PlatformSRE-L3-Elevated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="365" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="group-app-support" value="AKS-xxx-AppSupport-L2-Elevated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="400" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="group-command-centre" value="AKS-xxx-CommandCentre-L1-Elevated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="435" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="group-cloud-deploy" value="AKS-xxx-CloudDeployment-Elevated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="470" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="group-viewer" value="AKS-xxx-ClusterViewer (Standing)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="505" width="340" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-pim-groups" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#0078D4;endArrow=classic;endFill=1;" parent="1" source="pim-box" target="groups-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="pim-arrow-label" value="JIT Activation" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;labelBackgroundColor=#FFF;fontColor=#0078D4;" parent="arrow-pim-groups" vertex="1" connectable="0">
+                    <mxGeometry x="-0.15" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="aks-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#0078D4;strokeWidth=3;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="600" width="1780" height="720" as="geometry"/>
+                </mxCell>
+                <mxCell id="aks-icon" value="" style="image;html=1;image=img/lib/azure2/containers/Kubernetes_Services.svg;" parent="1" vertex="1">
+                    <mxGeometry x="131" y="615" width="68" height="68" as="geometry"/>
+                </mxCell>
+                <mxCell id="aks-title" value="Azure Kubernetes Service (AKS) Cluster" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#0078D4;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="634" width="450" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="k8s-rbac-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#326CE5;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="710" width="840" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="k8s-rbac-title" value="Kubernetes RBAC (Authorization)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontStyle=1;fontColor=#326CE5;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="735" width="350" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="clusterroles-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#CC0000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="790" width="360" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="clusterroles-title" value="ClusterRoles (Cluster-Scoped)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#CC0000;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="800" width="340" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="cr-admin" value="cluster-admin&#xa;Full Cluster Access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="835" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="cr-admin-bind" value="→ InfraOps L2, Platform SRE L3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="876" width="320" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="cr-system" value="system-namespace-operator&#xa;kube-system Access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="905" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="cr-system-bind" value="→ InfraOps L2, Platform SRE L3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="946" width="320" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="cr-readonly" value="cluster-readonly&#xa;Cluster-Wide Read-Only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="975" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="cr-readonly-bind" value="→ ClusterViewer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="1016" width="320" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="roles-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#D6B656;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="790" width="400" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="roles-title" value="Roles (Namespace-Scoped)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#D4670A;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="800" width="380" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="role-operator" value="app-namespace-operator&#xa;Full Ops (R/W/X, Exec, Scale)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="835" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="role-operator-bind" value="→ App Support L2" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="876" width="360" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="role-l1" value="l1-restricted-operator&#xa;Read-Only (View Logs, No Exec)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="905" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="role-l1-bind" value="→ Command Centre L1, ClusterViewer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="946" width="360" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="role-deploy" value="project-deployment-temp&#xa;Deployment-Focused (No Exec)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="975" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="role-deploy-bind" value="→ Cloud Deployment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="1016" width="360" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="namespaces-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#326CE5;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="710" width="840" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-title" value="Kubernetes Namespaces" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontStyle=1;fontColor=#326CE5;" parent="1" vertex="1">
+                    <mxGeometry x="1010" y="725" width="820" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-system-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#CC0000;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="770" width="380" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-system-title" value="kube-system" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#CC0000;" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="792" width="150" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-system-badge" value="System Namespace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1260" y="790" width="130" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-coredns" value="" style="image;html=1;image=img/lib/azure2/containers/Container_Instances.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1050" y="840" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-coredns-label" value="CoreDNS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="850" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-proxy" value="" style="image;html=1;image=img/lib/azure2/containers/Container_Instances.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1230" y="840" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-proxy-label" value="kube-proxy" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1280" y="850" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-cni" value="" style="image;html=1;image=img/lib/azure2/containers/Container_Instances.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1050" y="895" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-cni-label" value="Azure CNI" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="905" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-autoscaler" value="" style="image;html=1;image=img/lib/azure2/containers/Container_Instances.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1230" y="895" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="pod-autoscaler-label" value="autoscaler" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1280" y="905" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="system-access" value="🔒 Access: L2/L3 Only&#xa;(Infra Ops, Platform SRE)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fillColor=#FFE6E6;strokeColor=#CC0000;" parent="1" vertex="1">
+                    <mxGeometry x="1050" y="960" width="340" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-app-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#4CAF50;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="1440" y="770" width="380" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-app-title" value="app-namespace" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1;fontColor=#4CAF50;" parent="1" vertex="1">
+                    <mxGeometry x="1510" y="792" width="180" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="ns-app-badge" value="Application NS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="790" width="100" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="deployment-icon" value="" style="image;html=1;image=img/lib/azure2/containers/Container_Instances.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="840" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="deployment-label" value="Deployments" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1510" y="850" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="service-icon" value="" style="image;html=1;image=img/lib/azure2/networking/Load_Balancers.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1640" y="840" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="service-label" value="Services" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1690" y="850" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="configmap-icon" value="" style="image;html=1;image=img/lib/azure2/app_services/App_Configuration.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="895" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="configmap-label" value="ConfigMaps" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1510" y="905" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="secret-icon" value="" style="image;html=1;image=img/lib/azure2/security/Key_Vaults.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1640" y="895" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="secret-label" value="Secrets" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1690" y="905" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="app-access" value="✅ App Support L2: R/W/X&#xa;👁 Command Centre L1: Read-Only&#xa;🚀 Cloud Deployment: Deploy" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fillColor=#E8F5E9;strokeColor=#4CAF50;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="960" width="340" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="law-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#0078D4;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="1080" width="840" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="law-title" value="Azure Log Analytics Workspace" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontStyle=1;fontColor=#0078D4;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="1105" width="350" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="log-audit" value="📊 kube-audit (AKSAuditAdmin)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#0078D4;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="1160" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="log-apiserver" value="📊 kube-apiserver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#0078D4;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="1160" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="log-guard" value="📊 guard (AAD Auth)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#0078D4;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="1160" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="log-autoscaler" value="📊 cluster-autoscaler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#0078D4;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="1205" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="log-retention" value="⏱ Retention: 90 days | 📋 Dedicated Tables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="1205" width="520" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="personas-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#666666;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="1080" width="840" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="personas-icon" value="" style="image;html=1;image=img/lib/azure2/identity/Users.svg;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="1095" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="personas-title" value="Operational Personas" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontStyle=1;fontColor=#4CAF50;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="1105" width="500" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="persona-infra" value="👤 Infra Ops L2&#xa;Cluster Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="1160" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="persona-sre" value="👤 Platform SRE L3&#xa;Cluster Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1165" y="1160" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="persona-app" value="👤 App Support L2&#xa;NS Editor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1310" y="1160" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="persona-cmd" value="👤 Cmd Centre L1&#xa;NS Viewer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1455" y="1160" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="persona-cloud" value="👤 Cloud Deploy&#xa;NS Deployer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D6B656;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1600" y="1160" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="persona-viewer" value="👤 Viewer&#xa;Read-Only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1745" y="1160" width="75" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="security-features" value="🔒 Least Privilege | ✅ JIT via PIM | 🚫 No Wildcards | 📊 90-Day Audit | 🔐 Secrets Read-Only (L2) | 🚷 System NS Blocked" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fillColor=#E8F5E9;strokeColor=#4CAF50;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="1245" width="800" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="arrow-entra-aks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#0078D4;endArrow=classic;endFill=1;" parent="1" source="entra-section" target="aks-section" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="550" as="sourcePoint"/>
+                        <mxPoint x="500" y="610" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arrow-entra-label" value="Entra ID Group Object IDs&#xa;in K8s RoleBindings" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontStyle=1;labelBackgroundColor=#FFF;fontColor=#0078D4;" parent="arrow-entra-aks" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="2" relative="1" as="geometry">
+                        <mxPoint x="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF;strokeColor=#666666;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="160" width="520" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="170" width="100" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-cluster" value="🔴" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="205" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-cluster-text" value="Cluster Admin (L2/L3) - Full cluster access, kube-system, node mgmt, RBAC" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1035" y="205" width="500" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-ns" value="🟡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="230" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-ns-text" value="Namespace-Scoped (L1/L2) - App namespaces only, NO kube-system, NO cluster-wide" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1035" y="230" width="550" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-readonly" value="🟢" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="255" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-readonly-text" value="Standing Access (No JIT) - Read-only visibility only, no modifications" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1035" y="255" width="500" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=role" vertex="1" parent="1">
+                    <mxGeometry x="140" y="726" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" vertex="1" parent="1">
+                    <mxGeometry x="133" y="1088" width="64" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_Privilege_Identity_Management.svg;" vertex="1" parent="1">
+                    <mxGeometry x="138" y="273" width="54" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=ns" vertex="1" parent="1">
+                    <mxGeometry x="1455" y="781" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=ns" vertex="1" parent="1">
+                    <mxGeometry x="1040" y="781" width="50" height="48" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

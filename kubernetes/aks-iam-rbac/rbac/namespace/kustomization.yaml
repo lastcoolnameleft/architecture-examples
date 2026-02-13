@@ -1,0 +1,27 @@
+# =============================================================================
+# Kustomization File for Namespace-Scoped RBAC
+# =============================================================================
+# Use this with kustomize to deploy namespace-scoped RBAC resources
+# 
+# Usage:
+#   kubectl apply -k rbac/namespace/ -n <target-namespace>
+#
+# For multiple namespaces, create overlays or use a script to apply
+# to each application namespace.
+# =============================================================================
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: aks-iam-namespace-rbac
+  annotations:
+    description: "Namespace-scoped RBAC roles and bindings for AKS IAM posture"
+
+resources:
+  - namespace-roles.yaml
+  - namespace-rolebindings.yaml
+
+commonLabels:
+  app.kubernetes.io/part-of: aks-iam-posture
+  app.kubernetes.io/managed-by: kustomize

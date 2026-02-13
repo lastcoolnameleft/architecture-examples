@@ -1,0 +1,112 @@
+# =============================================================================
+# Terraform Variables File for AKS IAM Deployment
+# =============================================================================
+# This file provides sample parameter values for deploying an AKS cluster
+# with proper IAM posture. Replace placeholder values with actual values
+# before deployment.
+# =============================================================================
+
+# =============================================================================
+# CLUSTER IDENTITY - REQUIRED: Update these values
+# =============================================================================
+
+# Cluster name following naming convention: aks-<customer>-<environment>-<region>
+cluster_name = ""
+
+# Resource group name
+resource_group_name = ""
+
+# Azure region for deployment
+location = ""
+
+# =============================================================================
+# ENTRA ID GROUPS - REQUIRED: Update with actual group object IDs
+# =============================================================================
+
+# These groups should be configured in Entra ID PIM for JIT elevation
+# Only include groups that need cluster-admin level access
+cluster_admin_group_object_ids = [
+  "", # InfraOps L2 - AKS-iam-sandbox-aks-InfraOps-L2-Elevated
+  "", # Platform SRE L3 - AKS-iam-sandbox-aks-PlatformSRE-L3-Elevated
+]
+
+# =============================================================================
+# NETWORK CONFIGURATION
+# =============================================================================
+
+# Resource ID of the subnet for AKS nodes (leave empty for managed networking)
+vnet_subnet_id = ""
+
+network_plugin = "azure"
+network_policy = "azure"
+service_cidr   = "10.0.0.0/16"
+dns_service_ip = "10.0.0.10"
+
+# =============================================================================
+# NODE POOL CONFIGURATION
+# =============================================================================
+
+# System pool (for system components like CoreDNS, kube-proxy)
+system_node_vm_size   = "Standard_D4ds_v5"
+system_node_count     = 3
+system_node_min_count = 3
+system_node_max_count = 5
+
+# User pool (for application workloads)
+user_node_vm_size   = "Standard_D4ds_v5"
+user_node_count     = 3
+user_node_min_count = 3
+user_node_max_count = 10
+
+# Availability zones for high availability
+availability_zones = ["1", "2", "3"]
+
+# =============================================================================
+# SECURITY CONFIGURATION
+# =============================================================================
+
+# Use Kubernetes RBAC with Entra ID groups (standard pattern)
+# Authentication: Entra ID | Authorization: K8s RoleBindings
+enable_azure_rbac = false
+
+# Disable local accounts to enforce Entra ID authentication (REQUIRED)
+disable_local_accounts = true
+
+# Enable Azure Defender for container security
+enable_azure_defender = true
+
+# Enable Azure Policy for governance
+enable_azure_policy = true
+
+# Disk encryption set resource ID (optional, for customer-managed keys)
+disk_encryption_set_id = ""
+
+# Private cluster configuration (recommended for production)
+enable_private_cluster = false
+private_dns_zone_id    = ""
+
+# =============================================================================
+# MONITORING CONFIGURATION
+# =============================================================================
+
+# Log Analytics workspace resource ID (leave empty to create new)
+log_analytics_workspace_id = ""
+
+# Log Analytics workspace name (used if creating new workspace)
+log_analytics_workspace_name = ""
+
+# Log retention in days (90 days recommended for audit compliance)
+log_retention_in_days = 90
+
+# =============================================================================
+# TAGS
+# =============================================================================
+
+tags = {
+  Environment  = "sandbox"
+  Customer     = "partner-demo"
+  ManagedBy    = "terraform"
+  CostCenter   = "demo"
+  Owner        = "platform-team"
+  SecurityZone = "demo"
+}

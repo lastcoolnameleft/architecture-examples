@@ -1,0 +1,115 @@
+// =============================================================================
+// Bicep Parameters File for AKS IAM Deployment
+// =============================================================================
+// This file provides sample parameter values for deploying an AKS cluster
+// with proper IAM posture. Replace placeholder values with actual values
+// before deployment.
+// =============================================================================
+
+using 'main.bicep'
+
+// =============================================================================
+// CLUSTER IDENTITY - REQUIRED: Update these values
+// =============================================================================
+
+// Cluster name following naming convention: aks-<customer>-<environment>-<region>
+// Example: aks-acme-prod-eastus
+param clusterName = '<YOUR_CLUSTER_NAME>'  // e.g., 'aks-mycompany-prod-eastus'
+
+// Azure region for deployment
+param location = '<AZURE_REGION>'  // e.g., 'eastus', 'westus2', 'westeurope', 'centralus'
+
+// =============================================================================
+// ENTRA ID GROUPS - REQUIRED: Update with actual group object IDs
+// =============================================================================
+
+// These groups should be configured in Entra ID PIM for JIT elevation
+// Only include groups that need cluster-admin level access
+param clusterAdminGroupObjectIds = [
+  '<INFRA_OPS_L2_GROUP_ID>'      // InfraOps L2 - AKS-<cluster>-InfraOps-L2-Elevated
+  '<PLATFORM_SRE_L3_GROUP_ID>'   // Platform SRE L3 - AKS-<cluster>-PlatformSRE-L3-Elevated
+]
+
+// =============================================================================
+// NETWORK CONFIGURATION
+// =============================================================================
+
+// Resource ID of the subnet for AKS nodes (leave empty for managed networking)
+// Example: '/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.Network/virtualNetworks/<vnet>/subnets/<subnet>'
+param vnetSubnetResourceId = ''
+
+param networkPlugin = 'azure'
+param networkPolicy = 'azure'
+param serviceCidr = '10.0.0.0/16'
+param dnsServiceIP = '10.0.0.10'
+
+// =============================================================================
+// NODE POOL CONFIGURATION
+// =============================================================================
+
+// System pool (for system components like CoreDNS, kube-proxy)
+param systemNodeVmSize = 'Standard_D4ds_v5'
+param systemNodeCount = 3
+param systemNodeMinCount = 3
+param systemNodeMaxCount = 5
+
+// User pool (for application workloads)
+param userNodeVmSize = 'Standard_D4ds_v5'
+param userNodeCount = 3
+param userNodeMinCount = 3
+param userNodeMaxCount = 10
+
+// Availability zones for high availability
+param availabilityZones = ['1', '2', '3']
+
+// =============================================================================
+// SECURITY CONFIGURATION
+// =============================================================================
+
+// Use Kubernetes RBAC with Entra ID groups (standard pattern)
+// Authentication: Entra ID | Authorization: K8s RoleBindings
+param enableAzureRBAC = false
+
+// Disable local accounts to enforce Entra ID authentication (REQUIRED)
+param disableLocalAccounts = true
+
+// Enable Azure Defender for container security
+param enableAzureDefender = true
+
+// Enable Azure Policy for governance
+param enableAzurePolicy = true
+
+// Disk encryption set resource ID (optional, for customer-managed keys)
+// Example: '/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.Compute/diskEncryptionSets/<des>'
+param diskEncryptionSetResourceId = ''
+
+// Private cluster configuration (recommended for production)
+param enablePrivateCluster = false
+param privateDNSZone = ''
+
+// =============================================================================
+// MONITORING CONFIGURATION
+// =============================================================================
+
+// Log Analytics workspace resource ID (leave empty to create new)
+// Example: '/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.OperationalInsights/workspaces/<law>'
+param logAnalyticsWorkspaceResourceId = '<YOUR_LAW_RESOURCE_ID>'  // Optional: leave empty to create new
+
+// Log Analytics workspace name (used if creating new workspace)
+param logAnalyticsWorkspaceName = '<YOUR_LAW_NAME>'  // e.g., 'law-mycompany-prod-aks'
+
+// Log retention in days (90 days recommended for audit compliance)
+param logRetentionInDays = 90
+
+// =============================================================================
+// TAGS
+// =============================================================================
+
+param tags = {
+  Environment: '<ENVIRONMENT>'      // e.g., 'dev', 'staging', 'prod'
+  Customer: '<CUSTOMER_NAME>'       // Your customer/organization identifier
+  ManagedBy: 'bicep'
+  CostCenter: '<COST_CENTER>'       // Your cost allocation code
+  Owner: '<TEAM_NAME>'              // Team responsible for this cluster
+  SecurityZone: '<SECURITY_ZONE>'   // e.g., 'restricted', 'internal', 'dmz'
+}

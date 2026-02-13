@@ -3,3 +3,213 @@
 /ignore
 /partners
 /architectures/partners/
+
+# =============================================================================
+# AKS IAM Posture Project - .gitignore
+# =============================================================================
+
+# =============================================================================
+# Terraform
+# =============================================================================
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Parameter files with actual values
+terraform.tfvars
+terraform.tfvars.backup
+*.tfvars.json
+*.auto.tfvars
+
+# Keep example/template files
+!terraform.tfvars.example
+!*.tfvars.template
+terraform.tfvars
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# =============================================================================
+# Bicep
+# =============================================================================
+# Generated ARM templates
+infra/*.json
+!infra/versions.tf
+
+# Parameter files with actual values
+*.bicepparam
+*.parameters.json
+
+# Keep example/template files
+!*.bicepparam.example
+!*.parameters.example.json
+
+# =============================================================================
+# Kubernetes & Azure
+# =============================================================================
+# Kubeconfig files
+*.kubeconfig
+kubeconfig*
+.kube/
+
+# Azure CLI cache
+.azure/
+
+# Kubernetes secrets (if accidentally created)
+*-secret.yaml
+*-secrets.yaml
+
+# =============================================================================
+# Environment & Configuration
+# =============================================================================
+# Environment files with actual credentials
+demo-accounts-*.env
+*-prod-*.env
+*-production-*.env
+.env
+.env.*
+*.env.local
+
+# Keep template files
+!*-template.env
+!docs/group-config-template.env
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# =============================================================================
+# Documentation Source Files
+# =============================================================================
+# Source documents (keep markdown only)
+*.pdf
+*.docx
+*.doc
+*.pptx
+*.ppt
+
+# Keep markdown versions
+!*.md
+
+# =============================================================================
+# IDE & Editor
+# =============================================================================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# =============================================================================
+# Operating System
+# =============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# =============================================================================
+# Logs & Temporary Files
+# =============================================================================
+# Log files
+*.log
+logs/
+*.out
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+
+# Test outputs
+test-results/
+coverage/
+
+# =============================================================================
+# Security & Credentials
+# =============================================================================
+# Private keys and certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Service account files
+*-sa.json
+service-account*.json
+
+# SSH keys
+id_rsa*
+id_dsa*
+id_ed25519*
+
+# Azure credentials (if somehow saved)
+azure-credentials*.json
+
+# =============================================================================
+# Build & Package Outputs
+# =============================================================================
+dist/
+build/
+output/
+*.zip
+*.tar.gz
+*.tgz
+
+# =============================================================================
+# Validation & Test Data
+# =============================================================================
+# Generated comparison reports
+*-comparison.md
+persona-comparison*.md
+
+# Keep validation scripts
+!scripts/validate-*.sh
+!scripts/*.sh
+
