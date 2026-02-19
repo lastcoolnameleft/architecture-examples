@@ -121,7 +121,24 @@ kubectl apply -f rbac/namespace/namespace-roles.yaml -n <APP_NAMESPACE>
 kubectl apply -f rbac/namespace/namespace-rolebindings.yaml -n <APP_NAMESPACE>
 ```
 
-### 4. Validate
+### 4. Create Demo Accounts
+
+Create demo Entra ID users and groups for each persona using the setup script:
+
+```bash
+./scripts/setup-demo-accounts.sh --domain <your-tenant.onmicrosoft.com> --cluster <CLUSTER_NAME>
+```
+
+This creates:
+- Entra ID groups (e.g., `AKS-<ClusterName>-InfraOps-L2-Elevated`)
+- Demo users for each persona (e.g., `demo-infraops@yourtenant.onmicrosoft.com`)
+- Group memberships mapping each user to their corresponding group
+
+> **Note:** Requires Azure CLI logged in with Entra ID admin permissions (ability to create groups and users).
+
+The script outputs a `.env` file (`demo-accounts-<CLUSTER_NAME>.env`) with the created user UPNs and group IDs, which is used by the validation script in the next step.
+
+### 5. Validate
 
 #### Validate Infrastructure and Configuration
 
@@ -141,14 +158,6 @@ This validates:
 #### Validate Persona Permissions
 
 ```bash
-# First, create a config file with demo/test user accounts
-cp docs/group-config-template.env demo-accounts-<CLUSTER_NAME>.env
-
-# Update with actual user UPNs and group IDs:
-#   INFRA_OPS_L2_USER="demo-infraops@yourtenant.onmicrosoft.com"
-#   INFRA_OPS_L2_GROUP_ID="0a09b16f-..."
-#   etc.
-
 # Run persona validation
 ./scripts/validate-persona-permissions.sh demo-accounts-<CLUSTER_NAME>.env
 ```
