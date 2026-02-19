@@ -44,9 +44,9 @@ This implementation supports a **Nothing-Shared SaaS** architecture where each c
 ## Implementation Architecture
 
 ```
-Entra ID (PIM) → Entra ID Groups → Kubernetes RBAC → Workloads
-     ↓                  ↓                  ↓              ↓
- JIT Activation    Group Object IDs   Role Bindings   Namespaces
+Entra ID (PIM)  →  Entra ID Groups  → Kubernetes RBAC → Workloads
+     ↓                  ↓                  ↓               ↓
+ JIT Activation    Group Object IDs   Role Bindings     Namespaces
 ```
 
 ### Access Flow
