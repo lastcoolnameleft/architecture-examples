@@ -42,7 +42,8 @@ This implementation supports:
 │   ├── validate-rbac.sh           # Validate infrastructure & config
 │   ├── validate-persona-permissions.sh  # Validate user permissions
 │   ├── deploy-rbac-multi-cluster.sh
-│   └── setup-demo-accounts.sh
+│   ├── setup-demo-accounts.sh
+│   └── cleanup.sh                 # Remove all created resources
 └── docs/                           # Documentation
     ├── README.md                   # Full implementation guide
     └── group-config-template.env   # Entra ID group configuration
@@ -70,7 +71,7 @@ cd infra/bicep/
 
 # Deploy
 az deployment group create \
-  --resource-group <RESOURCE_GROUP> \
+  --resource-group $RESOURCE_GROUP \
   --template-file main.bicep \
   --parameters main.bicepparam
 ```
@@ -126,7 +127,8 @@ kubectl apply -f rbac/namespace/namespace-rolebindings.yaml -n <APP_NAMESPACE>
 Create demo Entra ID users and groups for each persona using the setup script:
 
 ```bash
-./scripts/setup-demo-accounts.sh --domain <your-tenant.onmicrosoft.com> --cluster <CLUSTER_NAME>
+export TENANT=<YOUR TENANT>
+./scripts/setup-demo-accounts.sh --domain $TENANT --cluster $CLUSTER_NAME
 ```
 
 This creates:
@@ -143,7 +145,7 @@ The script outputs a `.env` file (`demo-accounts-<CLUSTER_NAME>.env`) with the c
 #### Validate Infrastructure and Configuration
 
 ```bash
-./scripts/validate-rbac.sh <RESOURCE_GROUP> <CLUSTER_NAME> <LAW_NAME>
+./scripts/validate-rbac.sh $RESOURCE_GROUP $CLUSTER_NAME $LAW_NAME
 ```
 
 This validates:
@@ -196,6 +198,36 @@ See [docs/README.md](docs/README.md) for:
 - PIM configuration guidance
 - Validation checklist
 - Troubleshooting guide
+
+## Cleanup
+
+To remove everything created by this setup, run `scripts/cleanup.sh`:
+
+```bash
+# Remove only Entra ID users, groups, RBAC, and the generated .env file
+./scripts/cleanup.sh --cluster <CLUSTER_NAME>
+
+# Also destroy Terraform-managed infrastructure
+./scripts/cleanup.sh --cluster <CLUSTER_NAME> --infra-tool terraform
+
+# Also destroy Bicep-managed infrastructure (resource group delete)
+./scripts/cleanup.sh --cluster <CLUSTER_NAME> --infra-tool bicep --resource-group <RESOURCE_GROUP>
+
+# Also remove namespace-scoped RBAC from a specific namespace
+./scripts/cleanup.sh --cluster <CLUSTER_NAME> --namespace <APP_NAMESPACE>
+
+# Skip confirmation prompt
+./scripts/cleanup.sh --cluster <CLUSTER_NAME> --yes
+```
+
+The script removes, in order:
+1. Kubernetes ClusterRoles and ClusterRoleBindings (and namespace RBAC if `--namespace` is given)
+2. Entra ID demo users (`demo-infraops`, `demo-platformsre`, etc.)
+3. Entra ID groups (`AKS-<ClusterName>-*`)
+4. AKS infrastructure (if `--infra-tool` is specified)
+5. Generated `demo-accounts-<CLUSTER_NAME>.env` file
+
+Use `--skip-rbac`, `--skip-users`, `--skip-groups`, `--skip-infra`, or `--skip-env-file` to omit individual steps.
 
 ## Security Features
 

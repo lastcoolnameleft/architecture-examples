@@ -18,7 +18,7 @@ set -e
 # Configuration
 CLUSTER_NAME="iam-sandbox-aks"
 DOMAIN=""
-PASSWORD="<CHANGE THIS>"  # Change this for production!
+PASSWORD=""
 
 # Colors
 RED='\033[0;31m'
@@ -38,12 +38,17 @@ while [[ $# -gt 0 ]]; do
             CLUSTER_NAME="$2"
             shift 2
             ;;
+        --password)
+            PASSWORD="$2"
+            shift 2
+            ;;
         --help)
             echo "Usage: $0 [OPTIONS]"
             echo ""
             echo "Options:"
             echo "  --domain <domain>    Your Entra ID tenant domain (e.g., contoso.onmicrosoft.com)"
             echo "  --cluster <name>     Cluster name for group naming (default: iam-sandbox-aks)"
+            echo "  --password <pass>    Password for demo users (prompted or auto-generated if omitted)"
             echo "  --help               Show this help message"
             exit 0
             ;;
@@ -63,6 +68,27 @@ if [ -z "$DOMAIN" ]; then
         exit 1
     fi
     echo -e "Using domain: ${GREEN}$DOMAIN${NC}"
+fi
+
+# =============================================================================
+# Resolve password
+# Meets Entra ID policy: 8+ chars, uppercase, lowercase, digit, special
+# =============================================================================
+generate_password() {
+    # Prefix guarantees all required character classes; suffix adds randomness
+    RAND=$(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom | head -c 10)
+    echo "Aks1!${RAND}"
+}
+
+if [ -z "$PASSWORD" ]; then
+    echo -n "Enter password for demo users (leave blank to auto-generate): "
+    read -rs PASSWORD
+    echo
+fi
+
+if [ -z "$PASSWORD" ]; then
+    PASSWORD=$(generate_password)
+    echo -e "Using password: ${YELLOW}${PASSWORD}${NC}"
 fi
 
 echo ""
@@ -256,7 +282,7 @@ echo "]"
 echo ""
 
 # Save to file for easy reference
-OUTPUT_FILE="../demo-accounts-${CLUSTER_NAME}.env"
+OUTPUT_FILE="$(cd "$(dirname "$0")/.." && pwd)/demo-accounts-${CLUSTER_NAME}.env"
 cat > "$OUTPUT_FILE" << EOF
 # =============================================================================
 # Demo Account Configuration for ${CLUSTER_NAME}
@@ -304,22 +330,4 @@ EOF
 
 echo -e "${GREEN}Configuration saved to: demo-accounts-${CLUSTER_NAME}.env${NC}"
 echo ""
-echo "=============================================="
-echo "Next Steps"
-echo "=============================================="
-echo ""
-echo "1. Update infra/main.bicepparam with the group IDs above"
-echo ""
-echo "2. Update RBAC YAML files with group IDs:"
-echo "   - rbac/cluster/cluster-roles.yaml"
-echo "   - rbac/namespace/namespace-rolebindings.yaml"
-echo ""
-echo "3. Deploy the AKS cluster:"
-echo "   az deployment group create -g <RG> -f infra/main.bicep -p infra/main.bicepparam"
-echo ""
-echo "4. Apply RBAC manifests:"
-echo "   kubectl apply -k rbac/cluster/"
-echo ""
-echo "5. Test each persona by logging in as the demo user:"
-echo "   az login --username demo-infraops@${DOMAIN}"
-echo ""
+

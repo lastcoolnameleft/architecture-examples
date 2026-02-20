@@ -257,15 +257,15 @@ echo -e "\n${YELLOW}[8/8] Checking audit logs are flowing to Log Analytics...${N
 if [ -n "$LOG_ANALYTICS_WORKSPACE_ID" ]; then
     RECENT_LOGS=$(az monitor log-analytics query \
         --workspace "$LOG_ANALYTICS_WORKSPACE_ID" \
-        --analytics-query "AzureDiagnostics | where Category == 'kube-audit' | where TimeGenerated > ago(1h) | count" \
+        --analytics-query "AKSAuditAdmin | where TimeGenerated > ago(1h) | count" \
         --query "[0].count_" -o tsv 2>/dev/null || echo "0")
     
     if [ "$RECENT_LOGS" -gt 0 ]; then
         echo "  Found $RECENT_LOGS audit events in last hour"
         check_result 0 "Audit logs flowing to Log Analytics"
     else
-        echo -e "  ${YELLOW}Note: No recent audit logs (may have ingestion delay)${NC}"
-        check_result 0 "Audit log check skipped (possible ingestion delay)"
+        echo -e "  ${YELLOW}NOTE: No recent audit logs (may have ingestion delay)${NC}"
+        check_result 1 "Audit log check skipped (possible ingestion delay)"
     fi
 else
     echo "  Skipped (no Log Analytics workspace ID provided)"
