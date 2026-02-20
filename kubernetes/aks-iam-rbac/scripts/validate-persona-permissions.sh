@@ -53,9 +53,11 @@ test_result() {
     
     if [ "$expected" = "$actual" ]; then
         echo -e "  ${GREEN}✓ PASS${NC}: $description"
+        TESTS_RUN=$((TESTS_RUN + 1))
     else
         echo -e "  ${RED}✗ FAIL${NC}: $description (expected: $expected, got: $actual)"
         FAILURES=$((FAILURES + 1))
+        TESTS_RUN=$((TESTS_RUN + 1))
     fi
 }
 
@@ -104,6 +106,7 @@ can_i() {
 
 # Counter for failures
 FAILURES=0
+TESTS_RUN=0
 
 # Test namespace for namespace-scoped permissions
 TEST_NAMESPACE="default"
@@ -253,13 +256,22 @@ fi
 # Summary
 # =============================================================================
 echo "=============================================="
-if [ "$FAILURES" -eq 0 ]; then
-    echo -e "${GREEN}✓ All tests passed!${NC}"
+if [ "$TESTS_RUN" -eq 0 ]; then
+    echo -e "${RED}✗ No tests ran!${NC}"
+    echo ""
+    echo "None of the expected user variables were found in $CONFIG_FILE."
+    echo "Expected variables: INFRA_OPS_L2_USER, PLATFORM_SRE_L3_USER, APP_SUPPORT_L2_USER,"
+    echo "                    COMMAND_CENTRE_L1_USER, CLOUD_DEPLOYMENT_USER, VIEWER_USER"
+    echo ""
+    echo "Re-run setup-demo-accounts.sh to regenerate the config file."
+    exit 1
+elif [ "$FAILURES" -eq 0 ]; then
+    echo -e "${GREEN}✓ All $TESTS_RUN tests passed!${NC}"
     echo ""
     echo "All personas have the expected permissions."
     exit 0
 else
-    echo -e "${RED}✗ $FAILURES test(s) failed${NC}"
+    echo -e "${RED}✗ $FAILURES/$TESTS_RUN test(s) failed${NC}"
     echo ""
     echo "Review the failed tests above and verify:"
     echo "  1. RBAC roles are correctly applied"

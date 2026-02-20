@@ -22,8 +22,9 @@ This implementation supports:
 
 ```
 ├── infra/                          # Infrastructure-as-Code
-│   ├── main.bicep                  # AKS cluster deployment (Bicep)
-│   ├── main.bicepparam             # Bicep parameter file
+│   ├── bicep/                      # Bicep deployment
+│   │   ├── main.bicep              # AKS cluster deployment
+│   │   └── main.bicepparam         # Bicep parameter file
 │   └── terraform/                  # Terraform configuration
 │       ├── main.tf                 # AKS cluster resources
 │       ├── variables.tf            # Input variables
@@ -31,25 +32,36 @@ This implementation supports:
 │       ├── versions.tf             # Provider versions
 │       └── terraform.tfvars        # Variable values
 ├── rbac/                           # Kubernetes RBAC manifests
+│   ├── group-ids.env.example       # Template for kustomize group ID env vars
 │   ├── cluster/                    # Cluster-scoped roles & bindings
 │   │   ├── cluster-roles.yaml
+│   │   ├── cluster-rolebindings.yaml
 │   │   └── kustomization.yaml
 │   └── namespace/                  # Namespace-scoped roles & bindings
 │       ├── namespace-roles.yaml
 │       ├── namespace-rolebindings.yaml
 │       └── kustomization.yaml
 ├── scripts/                        # Deployment & validation scripts
-│   ├── validate-rbac.sh           # Validate infrastructure & config
+│   ├── validate-rbac.sh            # Validate infrastructure & config
 │   ├── validate-persona-permissions.sh  # Validate user permissions
 │   ├── deploy-rbac-multi-cluster.sh
-│   ├── setup-demo-accounts.sh
-│   └── cleanup.sh                 # Remove all created resources
+│   ├── setup-demo-accounts.sh      # Create demo Entra ID users & groups
+│   └── cleanup.sh                  # Remove all created resources
 └── docs/                           # Documentation
     ├── README.md                   # Full implementation guide
     └── group-config-template.env   # Entra ID group configuration
 ```
 
 ## Quick Start
+
+### 0. Setup Env Vars
+
+```bash
+export RESOURCE_GROUP=
+export CLUSTER_NAME=
+export LAW_NAME=
+export TENANT=
+```
 
 ### 1. Deploy AKS Cluster
 
@@ -101,33 +113,11 @@ terraform apply
 az aks get-credentials --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME
 ```
 
-### 2. Configure Entra ID Groups
-
-Create groups following the naming convention in `docs/group-config-template.env`:
-
-- `AKS-<ClusterName>-InfraOps-L2-Elevated`
-- `AKS-<ClusterName>-AppSupport-L2-Elevated`
-- `AKS-<ClusterName>-CommandCentre-L1-Elevated`
-- etc.
-
-### 3. Apply RBAC
-
-```bash
-# Update group object IDs in YAML files
-# Then apply cluster-wide RBAC
-kubectl apply -k rbac/cluster/
-
-# Apply to each application namespace
-kubectl apply -f rbac/namespace/namespace-roles.yaml -n <APP_NAMESPACE>
-kubectl apply -f rbac/namespace/namespace-rolebindings.yaml -n <APP_NAMESPACE>
-```
-
-### 4. Create Demo Accounts
+### 2. Create Demo Accounts
 
 Create demo Entra ID users and groups for each persona using the setup script:
 
 ```bash
-export TENANT=<YOUR TENANT>
 ./scripts/setup-demo-accounts.sh --domain $TENANT --cluster $CLUSTER_NAME
 ```
 
@@ -135,12 +125,44 @@ This creates:
 - Entra ID groups (e.g., `AKS-<ClusterName>-InfraOps-L2-Elevated`)
 - Demo users for each persona (e.g., `demo-infraops@yourtenant.onmicrosoft.com`)
 - Group memberships mapping each user to their corresponding group
+- `rbac/cluster/group-ids.env` and `rbac/namespace/group-ids.env` — used by kustomize when applying RBAC in the next step
+- Adds the current Azure CLI identity to the InfraOps-L2-Elevated group to prevent cluster lockout (use `--skip-self-add` to opt out)
 
 > **Note:** Requires Azure CLI logged in with Entra ID admin permissions (ability to create groups and users).
 
-The script outputs a `.env` file (`demo-accounts-<CLUSTER_NAME>.env`) with the created user UPNs and group IDs, which is used by the validation script in the next step.
+After running the script, update the cluster's Entra ID admin groups with the new group IDs:
 
-### 5. Validate
+```bash
+source demo-accounts-${CLUSTER_NAME}.env
+az aks update \
+  --resource-group $RESOURCE_GROUP \
+  --name $CLUSTER_NAME \
+  --aad-admin-group-object-ids "$INFRA_OPS_L2_GROUP_ID,$PLATFORM_SRE_L3_GROUP_ID"
+```
+
+> **Important:** After `az aks update`, your Entra ID access token still reflects your old group memberships.
+> You must re-authenticate to get a token with the new group claims before `kubectl` will work:
+
+```bash
+# Re-authenticate to refresh group claims in your token
+az logout && az login
+
+# Refresh kubeconfig
+az aks get-credentials --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --overwrite-existing
+kubelogin convert-kubeconfig -l azurecli
+```
+
+### 3. Apply RBAC
+
+```bash
+# Apply cluster-wide RBAC (kustomize injects group IDs from rbac/cluster/group-ids.env)
+kubectl apply -k rbac/cluster/
+
+# Apply to each application namespace
+kubectl apply -k rbac/namespace/ -n <APP_NAMESPACE>
+```
+
+### 4. Validate
 
 #### Validate Infrastructure and Configuration
 

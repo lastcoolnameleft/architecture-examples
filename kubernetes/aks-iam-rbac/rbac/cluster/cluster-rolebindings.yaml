@@ -1,0 +1,82 @@
+# =============================================================================
+# Cluster-Wide RBAC Bindings
+# =============================================================================
+# Group IDs are injected via kustomize configMapGenerator + replacements.
+# Do NOT hardcode group object IDs here — edit rbac/group-ids.env instead.
+# =============================================================================
+
+---
+# =============================================================================
+# CLUSTER ROLE BINDING: cluster-readonly-binding
+# =============================================================================
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-readonly-binding
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+  annotations:
+    description: "Binds cluster readonly access to ClusterViewer group"
+subjects:
+  - kind: Group
+    name: "CLUSTER_VIEWER_GROUP_ID"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: cluster-readonly
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# =============================================================================
+# CLUSTER ROLE BINDING: system-namespace-operator-binding
+# =============================================================================
+# JIT activation required via Entra ID PIM
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: system-namespace-operator-binding
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+  annotations:
+    description: "Binds system namespace operator access to infra/platform teams"
+    iam.partner.com/jit-required: "true"
+subjects:
+  - kind: Group
+    name: "INFRA_OPS_L2_GROUP_ID"
+    apiGroup: rbac.authorization.k8s.io
+  - kind: Group
+    name: "PLATFORM_SRE_L3_GROUP_ID"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: system-namespace-operator
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# =============================================================================
+# CLUSTER ROLE BINDING: cluster-admin-elevated-binding
+# =============================================================================
+# JIT activation required via Entra ID PIM
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-admin-elevated-binding
+  labels:
+    app.kubernetes.io/part-of: aks-iam-posture
+    app.kubernetes.io/component: rbac
+  annotations:
+    description: "Binds cluster admin access to elevated infra/platform teams"
+    iam.partner.com/jit-required: "true"
+subjects:
+  - kind: Group
+    name: "INFRA_OPS_L2_GROUP_ID"
+    apiGroup: rbac.authorization.k8s.io
+  - kind: Group
+    name: "PLATFORM_SRE_L3_GROUP_ID"
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
