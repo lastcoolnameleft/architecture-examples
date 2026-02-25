@@ -1,0 +1,7 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "kubectl get": true,
+        "kubectl create": true,
+        "kubectl wait": true
+    }
+}

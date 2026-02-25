@@ -1,8 +1,9 @@
 *.swp
 .DS_Store
 /ignore
-/partners
-/architectures/partners/
+
+# Playground directory - partner-specific prototyping, never checked in
+/playground/
 
 # =============================================================================
 # AKS IAM Posture Project - .gitignore
