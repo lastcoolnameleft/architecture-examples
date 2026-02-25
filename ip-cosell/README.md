@@ -15,6 +15,12 @@ For a SaaS solution to pass technical validation, it must be "primarily platform
 
 > **NOTE:** Before submitting, check out the [official reference architecture diagram documentation](https://learn.microsoft.com/en-us/partner-center/referrals/reference-architecture-diagram). It's worth reading to understand exactly what the review team is looking for.
 
+Some important parts to that article are:
+* Clealy show what's in the your Azure subscription and what's outside (e.g. use boxes to easily indicate).
+* List each of the Azure Services your solution uses.
+* Use red boxes with white bold text to showcase exactly where your Intellectual Properly (IP) resides
+* Provide a detailed, numbered flow of the data with the user interfaces and other services
+
 ## Example Architecture
 
 Many partners share similar architectural patterns, so this example is meant to give you a solid starting point. It's built with [Draw.io](https://draw.io/), which is free and easy to use.
