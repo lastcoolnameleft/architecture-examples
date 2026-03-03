@@ -1,0 +1,5 @@
+flask
+redis
+gunicorn
+# Pin to fix CVE-2026-23949 (path traversal via malicious tar archives)
+jaraco.context>=6.1.0

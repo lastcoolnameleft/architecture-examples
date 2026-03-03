@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "centralus"
+    },
+    "kubernetesVersion": {
+      "value": "1.32"
+    },
+    "nodeCount": {
+      "value": 3
+    },
+    "nodeVmSize": {
+      "value": "Standard_D4ds_v5"
+    },
+    "redisSku": {
+      "value": "Balanced_B0"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.0.0.0/16"
+    },
+    "aksSubnetPrefix": {
+      "value": "10.0.0.0/22"
+    },
+    "vote_title": {
+      "value": "Azure Voting App"
+    },
+    "vote_value1": {
+      "value": "Cats"
+    },
+    "vote_value2": {
+      "value": "Dogs"
+    }
+  }
+}

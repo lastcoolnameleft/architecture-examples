@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+  "views": [
+    {
+      "kind": "Overview",
+      "properties": {
+        "header": "Azure Voting App",
+        "description": "Azure Voting App deployed on AKS with Azure Managed Redis.",
+        "commands": [
+          {
+            "displayName": "Get AKS Credentials",
+            "path": "/getCredentials"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Metrics",
+      "properties": {
+        "displayName": "AKS Cluster Metrics",
+        "version": "1.0.0",
+        "charts": [
+          {
+            "displayName": "CPU Usage",
+            "chartType": "Line",
+            "metrics": [
+              {
+                "name": "node_cpu_usage_percentage",
+                "resourceTagFilter": [],
+                "aggregationType": "Avg",
+                "resourceType": "Microsoft.ContainerService/managedClusters"
+              }
+            ]
+          },
+          {
+            "displayName": "Memory Usage",
+            "chartType": "Line",
+            "metrics": [
+              {
+                "name": "node_memory_rss_percentage",
+                "resourceTagFilter": [],
+                "aggregationType": "Avg",
+                "resourceType": "Microsoft.ContainerService/managedClusters"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

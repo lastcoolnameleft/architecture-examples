@@ -1,6 +1,13 @@
 *.swp
 .DS_Store
 /ignore
+_source-app/
+.cnab
+*.tgz
+*.zip
+.DS_Store
+.vscode/
+porter.yaml
 
 # Playground directory - partner-specific prototyping, never checked in
 /playground/

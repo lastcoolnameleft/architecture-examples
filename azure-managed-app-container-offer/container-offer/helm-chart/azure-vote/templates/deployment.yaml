@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "azure-vote.fullname" . }}-front
+  labels:
+    {{- include "azure-vote.labels" . | nindent 4 }}
+    app: azure-vote-front
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "azure-vote.selectorLabels" . | nindent 6 }}
+      app: azure-vote-front
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        {{- include "azure-vote.selectorLabels" . | nindent 8 }}
+        app: azure-vote-front
+    spec:
+      nodeSelector:
+        {{- toYaml .Values.nodeSelector | nindent 8 }}
+      containers:
+        - name: azure-vote-front
+          image: "{{ .Values.global.azure.images.azureVoteFront.registry }}/{{ .Values.global.azure.images.azureVoteFront.image }}:{{ .Values.global.azure.images.azureVoteFront.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: REDIS
+              value: {{ .Values.redis.host | quote }}
+            - name: REDIS_PORT
+              value: {{ .Values.redis.port | quote }}
+            - name: REDIS_SSL
+              value: {{ .Values.redis.ssl | quote }}
+            {{- if .Values.redis.password }}
+            - name: REDIS_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "azure-vote.fullname" . }}-redis-secret
+                  key: redis-password
+            {{- end }}
+            - name: TITLE
+              value: {{ .Values.vote.title | quote }}
+            - name: VOTE1VALUE
+              value: {{ .Values.vote.value1 | quote }}
+            - name: VOTE2VALUE
+              value: {{ .Values.vote.value2 | quote }}
+            - name: SHOWHOST
+              value: {{ .Values.vote.showHost | quote }}

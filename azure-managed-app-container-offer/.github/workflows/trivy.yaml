@@ -1,0 +1,60 @@
+name: Trivy Security Scan
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "container-offer/app/**"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "container-offer/app/**"
+  schedule:
+    # Run weekly on Mondays at 08:00 UTC to catch newly disclosed CVEs
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+jobs:
+  trivy:
+    name: Scan azure-vote image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # required to upload SARIF to GitHub Security tab
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          docker build \
+            --tag azure-vote:${{ github.sha }} \
+            container-offer/app/
+
+      - name: Run Trivy (SARIF upload)
+        uses: aquasecurity/trivy-action@0.29.0
+        with:
+          image-ref: azure-vote:${{ github.sha }}
+          format: sarif
+          output: trivy-results.sarif
+          severity: HIGH,CRITICAL
+          ignore-unfixed: false
+          trivyignores: container-offer/app/.trivyignore
+
+      - name: Upload SARIF to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif
+          category: trivy-container
+
+      - name: Run Trivy (table — fail the build on HIGH/CRITICAL)
+        uses: aquasecurity/trivy-action@0.29.0
+        with:
+          image-ref: azure-vote:${{ github.sha }}
+          format: table
+          exit-code: "1"
+          severity: HIGH,CRITICAL
+          ignore-unfixed: false
+          trivyignores: container-offer/app/.trivyignore

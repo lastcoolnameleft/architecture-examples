@@ -1,0 +1,368 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "description": "Template for the Azure Managed Application. Deploys AKS, Azure Managed Redis, VNet, and managed identity wth the container offer extension."
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "clusterName": {
+      "type": "string",
+      "defaultValue": "[concat('aks-', variables('suffix'))]",
+      "metadata": {
+        "description": "Name of the AKS cluster."
+      }
+    },
+    "kubernetesVersion": {
+      "type": "string",
+      "defaultValue": "1.32",
+      "metadata": {
+        "description": "Kubernetes version for the AKS cluster."
+      }
+    },
+    "nodeCount": {
+      "type": "int",
+      "defaultValue": 3,
+      "minValue": 1,
+      "maxValue": 50,
+      "metadata": {
+        "description": "Number of nodes in the AKS default node pool."
+      }
+    },
+    "nodeVmSize": {
+      "type": "string",
+      "defaultValue": "Standard_D4ds_v5",
+      "metadata": {
+        "description": "VM size for the AKS node pool."
+      }
+    },
+    "redisName": {
+      "type": "string",
+      "defaultValue": "[concat('redis-', variables('suffix'))]",
+      "metadata": {
+        "description": "Name of the Azure Managed Redis instance."
+      }
+    },
+    "redisSku": {
+      "type": "string",
+      "defaultValue": "Balanced_B0",
+      "allowedValues": ["Balanced_B0", "Balanced_B1", "Balanced_B3"],
+      "metadata": {
+        "description": "SKU for Azure Managed Redis."
+      }
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "[concat('vnet-', variables('suffix'))]",
+      "metadata": {
+        "description": "Name of the virtual network."
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "Address prefix for the virtual network."
+      }
+    },
+    "aksSubnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/22",
+      "metadata": {
+        "description": "Subnet prefix for AKS nodes."
+      }
+    },
+    "peSubnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.4.0/24",
+      "metadata": {
+        "description": "Subnet prefix for private endpoints."
+      }
+    },
+    "vote_title": {
+      "type": "string",
+      "defaultValue": "Azure Voting App",
+      "metadata": {
+        "description": "Title displayed on the voting app."
+      }
+    },
+    "vote_value1": {
+      "type": "string",
+      "defaultValue": "Cats",
+      "metadata": {
+        "description": "First voting option."
+      }
+    },
+    "vote_value2": {
+      "type": "string",
+      "defaultValue": "Dogs",
+      "metadata": {
+        "description": "Second voting option."
+      }
+    }
+  },
+  "variables": {
+    "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
+    "aksSubnetName": "snet-aks",
+    "aksSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), variables('aksSubnetName'))]",
+    "peSubnetName": "snet-pe",
+    "peSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), variables('peSubnetName'))]",
+    "aksManagedIdentityName": "[concat('id-', parameters('clusterName'))]",
+    "networkContributorRoleId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4d97b98b-1d4f-4787-a291-c67834d212e7')]",
+    "aksClusterId": "[resourceId('Microsoft.ContainerService/managedClusters', parameters('clusterName'))]",
+    "redisDatabaseName": "default",
+    "redisPrivateEndpointName": "[concat('pe-', parameters('redisName'))]",
+    "redisPrivateDnsZoneName": "privatelink.redis.azure.net",
+    "extensionResourceName": "azure-vote",
+    "plan-publisher": "<YOUR_PUBLISHER_ID>",
+    "plan-offerID": "<YOUR_OFFER_ID>",
+    "plan-name": "<YOUR_PLAN_ID>",
+    "releaseTrain": "preview",
+    "clusterExtensionTypeName": "<YOUR_PUBLISHER_ID>.<YOUR_EXTENSION_NAME>"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2024-11-30",
+      "name": "[variables('aksManagedIdentityName')]",
+      "location": "[parameters('location')]"
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2025-05-01",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('aksSubnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('aksSubnetPrefix')]"
+            }
+          },
+          {
+            "name": "[variables('peSubnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('peSubnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets/providers/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "name": "[concat(parameters('vnetName'), '/', variables('aksSubnetName'), '/Microsoft.Authorization/', guid(variables('aksSubnetId'), variables('aksManagedIdentityName'), variables('networkContributorRoleId')))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('aksManagedIdentityName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables('networkContributorRoleId')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('aksManagedIdentityName'))).principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "type": "Microsoft.Cache/redisEnterprise",
+      "apiVersion": "2025-07-01",
+      "name": "[parameters('redisName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('redisSku')]"
+      },
+      "properties": {
+        "highAvailability": "Enabled",
+        "minimumTlsVersion": "1.2",
+        "publicNetworkAccess": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Cache/redisEnterprise/databases",
+      "apiVersion": "2025-07-01",
+      "name": "[concat(parameters('redisName'), '/', variables('redisDatabaseName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Cache/redisEnterprise', parameters('redisName'))]"
+      ],
+      "properties": {
+        "accessKeysAuthentication": "Enabled",
+        "clientProtocol": "Encrypted",
+        "clusteringPolicy": "OSSCluster",
+        "evictionPolicy": "VolatileLRU",
+        "port": 10000
+      }
+    },
+    {
+      "type": "Microsoft.Network/privateDnsZones",
+      "apiVersion": "2024-06-01",
+      "name": "[variables('redisPrivateDnsZoneName')]",
+      "location": "global"
+    },
+    {
+      "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+      "apiVersion": "2024-06-01",
+      "name": "[concat(variables('redisPrivateDnsZoneName'), '/', parameters('vnetName'), '-link')]",
+      "location": "global",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/privateDnsZones', variables('redisPrivateDnsZoneName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+      ],
+      "properties": {
+        "registrationEnabled": false,
+        "virtualNetwork": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/privateEndpoints",
+      "apiVersion": "2025-05-01",
+      "name": "[variables('redisPrivateEndpointName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+        "[resourceId('Microsoft.Cache/redisEnterprise', parameters('redisName'))]"
+      ],
+      "properties": {
+        "subnet": {
+          "id": "[variables('peSubnetId')]"
+        },
+        "privateLinkServiceConnections": [
+          {
+            "name": "[variables('redisPrivateEndpointName')]",
+            "properties": {
+              "privateLinkServiceId": "[resourceId('Microsoft.Cache/redisEnterprise', parameters('redisName'))]",
+              "groupIds": [
+                "redisEnterprise"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+      "apiVersion": "2025-05-01",
+      "name": "[concat(variables('redisPrivateEndpointName'), '/default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/privateEndpoints', variables('redisPrivateEndpointName'))]",
+        "[resourceId('Microsoft.Network/privateDnsZones', variables('redisPrivateDnsZoneName'))]"
+      ],
+      "properties": {
+        "privateDnsZoneConfigs": [
+          {
+            "name": "redis-dns-config",
+            "properties": {
+              "privateDnsZoneId": "[resourceId('Microsoft.Network/privateDnsZones', variables('redisPrivateDnsZoneName'))]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2026-01-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('aksManagedIdentityName'))]"
+      ],
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('aksManagedIdentityName'))]": {}
+        }
+      },
+      "properties": {
+        "kubernetesVersion": "[parameters('kubernetesVersion')]",
+        "dnsPrefix": "[parameters('clusterName')]",
+        "enableRBAC": true,
+        "agentPoolProfiles": [
+          {
+            "name": "system",
+            "count": "[parameters('nodeCount')]",
+            "vmSize": "[parameters('nodeVmSize')]",
+            "osType": "Linux",
+            "mode": "System",
+            "vnetSubnetID": "[variables('aksSubnetId')]",
+            "type": "VirtualMachineScaleSets",
+            "enableAutoScaling": false
+          }
+        ],
+        "networkProfile": {
+          "networkPlugin": "azure",
+          "serviceCidr": "10.1.0.0/16",
+          "dnsServiceIP": "10.1.0.10"
+        },
+        "addonProfiles": {
+          "azurepolicy": {
+            "enabled": true
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.KubernetesConfiguration/extensions",
+      "apiVersion": "2024-11-01",
+      "name": "[variables('extensionResourceName')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Cache/redisEnterprise/databases', parameters('redisName'), variables('redisDatabaseName'))]"
+      ],
+      "scope": "[concat('Microsoft.ContainerService/managedClusters/', parameters('clusterName'))]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "plan": {
+        "name": "[variables('plan-name')]",
+        "publisher": "[variables('plan-publisher')]",
+        "product": "[variables('plan-offerID')]"
+      },
+      "properties": {
+        "extensionType": "[variables('clusterExtensionTypeName')]",
+        "autoUpgradeMinorVersion": true,
+        "releaseTrain": "[variables('releaseTrain')]",
+        "configurationSettings": {
+          "vote.title": "[parameters('vote_title')]",
+          "vote.value1": "[parameters('vote_value1')]",
+          "vote.value2": "[parameters('vote_value2')]",
+          "redis.host": "[reference(resourceId('Microsoft.Cache/redisEnterprise', parameters('redisName')), '2025-07-01').hostName]",
+          "redis.port": "[string(reference(resourceId('Microsoft.Cache/redisEnterprise/databases', parameters('redisName'), variables('redisDatabaseName')), '2025-07-01').port)]",
+          "redis.ssl": "true"
+        },
+        "configurationProtectedSettings": {
+          "redis.password": "[listKeys(resourceId('Microsoft.Cache/redisEnterprise/databases', parameters('redisName'), variables('redisDatabaseName')), '2025-07-01').primaryKey]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "aksClusterName": {
+      "type": "string",
+      "value": "[parameters('clusterName')]"
+    },
+    "aksClusterFqdn": {
+      "type": "string",
+      "value": "[reference(variables('aksClusterId')).fqdn]"
+    },
+    "redisHostName": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Cache/redisEnterprise', parameters('redisName')), '2025-07-01').hostName]"
+    },
+    "vnetName": {
+      "type": "string",
+      "value": "[parameters('vnetName')]"
+    }
+  }
+}

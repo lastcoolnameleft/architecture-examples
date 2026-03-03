@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterResourceName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the existing AKS cluster where the extension will be installed."
+      }
+    },
+    "extensionResourceName": {
+      "type": "string",
+      "defaultValue": "azure-vote",
+      "metadata": {
+        "description": "The name of the extension resource."
+      }
+    },
+    "vote_title": {
+      "type": "string",
+      "defaultValue": "Azure Voting App",
+      "metadata": {
+        "description": "Title displayed on the voting app."
+      }
+    },
+    "vote_value1": {
+      "type": "string",
+      "defaultValue": "Cats",
+      "metadata": {
+        "description": "First voting option."
+      }
+    },
+    "vote_value2": {
+      "type": "string",
+      "defaultValue": "Dogs",
+      "metadata": {
+        "description": "Second voting option."
+      }
+    },
+    "redis_host": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "External Redis hostname. Leave empty to deploy Redis in-cluster."
+      }
+    },
+    "redis_port": {
+      "type": "string",
+      "defaultValue": "6379",
+      "metadata": {
+        "description": "Redis port number."
+      }
+    },
+    "redis_ssl": {
+      "type": "string",
+      "defaultValue": "false",
+      "allowedValues": ["true", "false"],
+      "metadata": {
+        "description": "Whether to use SSL for Redis connection."
+      }
+    },
+    "redis_password": {
+      "type": "securestring",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Redis password. Leave empty if not required."
+      }
+    }
+  },
+  "variables": {
+    "plan-name": "<YOUR_PLAN_ID>",
+    "plan-publisher": "<YOUR_PUBLISHER_ID>",
+    "plan-offerID": "<YOUR_OFFER_ID>",
+    "releaseTrain": "stable",
+    "clusterExtensionTypeName": "<YOUR_PUBLISHER_ID>.<YOUR_EXTENSION_NAME>"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.KubernetesConfiguration/extensions",
+      "apiVersion": "2023-05-01",
+      "name": "[parameters('extensionResourceName')]",
+      "scope": "[concat('Microsoft.ContainerService/managedClusters/', parameters('clusterResourceName'))]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "plan": {
+        "name": "[variables('plan-name')]",
+        "publisher": "[variables('plan-publisher')]",
+        "product": "[variables('plan-offerID')]"
+      },
+      "properties": {
+        "extensionType": "[variables('clusterExtensionTypeName')]",
+        "autoUpgradeMinorVersion": true,
+        "releaseTrain": "[variables('releaseTrain')]",
+        "configurationSettings": {
+          "vote.title": "[parameters('vote_title')]",
+          "vote.value1": "[parameters('vote_value1')]",
+          "vote.value2": "[parameters('vote_value2')]",
+          "redis.host": "[parameters('redis_host')]",
+          "redis.port": "[parameters('redis_port')]",
+          "redis.ssl": "[parameters('redis_ssl')]"
+        },
+        "configurationProtectedSettings": {
+          "redis.password": "[parameters('redis_password')]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "extensionResourceId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.KubernetesConfiguration/extensions', parameters('extensionResourceName'))]"
+    }
+  }
+}

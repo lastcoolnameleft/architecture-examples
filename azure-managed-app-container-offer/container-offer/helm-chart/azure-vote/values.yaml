@@ -1,0 +1,46 @@
+# Default values for azure-vote helm chart
+
+# Required by Azure Marketplace CPA tool:
+# All container images must be declared under global.azure.images
+global:
+  azure:
+    images:
+      azureVoteFront:
+        registry: <YOUR_ACR_NAME>.azurecr.io
+        image: azure-vote-front
+        tag: "1.0.3"
+
+replicaCount: 1
+
+image:
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+# Voting app configuration
+vote:
+  title: "Azure Voting App"
+  value1: "Cats"
+  value2: "Dogs"
+  showHost: "false"
+
+# Redis configuration
+redis:
+  host: "azure-vote-back"
+  port: 6379
+  ssl: false
+  password: ""
+
+# Node selector
+nodeSelector:
+  kubernetes.io/os: linux

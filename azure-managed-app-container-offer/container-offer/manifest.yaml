@@ -1,0 +1,17 @@
+# CNAB Manifest for Azure Container Offer
+# This file describes the CNAB bundle structure for publishing to Azure Marketplace.
+#
+# For detailed instructions, see:
+# https://learn.microsoft.com/en-us/azure/marketplace/azure-container-technical-assets-kubernetes
+# https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/manifest.yaml
+applicationName: <YOUR_BUNDLE_NAME>
+publisher: "<YOUR_PUBLISHER_DISPLAY_NAME>"
+description: "A test package for the marketplace CNAB structure with existing or new cluster."
+version: 1.0.3 #Must be in the format of #.#.#
+helmChart: "./helm-chart/azure-vote"
+clusterArmTemplate: "./arm-template/mainTemplate.json"
+uiDefinition: "./arm-template/createUIDefinition.json"
+registryServer: "<YOUR_ACR_NAME>.azurecr.io"
+extensionRegistrationParameters:
+  defaultScope: "cluster" # cluster or namespace 
+  namespace: "azure-vote" # Specify the namespace the extension will install into. This property is required when defaultScope field value is chosen as 'cluster'

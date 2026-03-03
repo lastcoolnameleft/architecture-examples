@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "azure-vote.fullname" . }}-front
+  labels:
+    {{- include "azure-vote.labels" . | nindent 4 }}
+    app: azure-vote-front
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 80
+      protocol: TCP
+  selector:
+    {{- include "azure-vote.selectorLabels" . | nindent 4 }}
+    app: azure-vote-front
+
