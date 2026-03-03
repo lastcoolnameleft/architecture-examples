@@ -206,6 +206,8 @@ Deploy the complete stack — infrastructure plus the container offer extension 
 
 You may also want to customize the `configurationSettings` in the `Microsoft.KubernetesConfiguration/extensions` resource to match the Helm values your app requires. The current template passes `vote.title`, `vote.value1`, `vote.value2`, and Redis connection settings.
 
+Before deploying, run ARM template validation using the ARM Template Test Toolkit (`arm-ttk`) and fix any issues: https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/test-toolkit
+
 ```bash
 cd managed-app-offer/scripts/deploy.sh --with-extension
 ```

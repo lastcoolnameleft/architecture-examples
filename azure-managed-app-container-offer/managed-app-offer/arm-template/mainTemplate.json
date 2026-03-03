@@ -14,7 +14,6 @@
     },
     "clusterName": {
       "type": "string",
-      "defaultValue": "[concat('aks-', variables('suffix'))]",
       "metadata": {
         "description": "Name of the AKS cluster."
       }
@@ -161,9 +160,10 @@
       }
     },
     {
-      "type": "Microsoft.Network/virtualNetworks/subnets/providers/roleAssignments",
+      "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
-      "name": "[concat(parameters('vnetName'), '/', variables('aksSubnetName'), '/Microsoft.Authorization/', guid(variables('aksSubnetId'), variables('aksManagedIdentityName'), variables('networkContributorRoleId')))]",
+      "name": "[guid(variables('aksSubnetId'), variables('aksManagedIdentityName'), variables('networkContributorRoleId'))]",
+      "scope": "[variables('aksSubnetId')]",
       "dependsOn": [
         "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('aksManagedIdentityName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
@@ -272,7 +272,7 @@
     },
     {
       "type": "Microsoft.ContainerService/managedClusters",
-      "apiVersion": "2026-01-01",
+      "apiVersion": "2025-11-01",
       "name": "[parameters('clusterName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
