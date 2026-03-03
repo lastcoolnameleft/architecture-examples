@@ -9,7 +9,7 @@
 | Quick kubectl commands | [aks-fundamentals/](aks-fundamentals/) |
 | Ingress / networking setup | [aks-networking/](aks-networking/) |
 | Private connectivity between services | [aks-private-link/](aks-private-link/) |
-| A reference architecture diagram | [ip-cosell/](ip-cosell/), [container-offer/](container-offer/), [managed-application/](managed-application/) |
+| A reference architecture diagram | [ip-cosell/](ip-cosell/), [container-offer/](container-offer/), [managed-application/](managed-application/), [azure-managed-app-container-offer/](azure-managed-app-container-offer/) |
 
 ---
 
@@ -23,9 +23,15 @@
 | [aks-on-prem-data/](aks-on-prem-data/) | AKS workloads accessing on-premises data sources |
 | [cluster-api-capz/](cluster-api-capz/) | Cluster API for Azure (CAPZ) overview |
 | [ip-cosell/](ip-cosell/) | Reference architecture diagram for Azure IP Co-Sell submissions |
+| [devops-gitops/](devops-gitops/) | On-premises GitLab → AKS GitOps pipeline architecture |
+
+## Marketplace Offers
+
+| Directory | Description |
+|-----------|-------------|
 | [container-offer/](container-offer/) | Architecture for container-based Azure Marketplace offers |
 | [managed-application/](managed-application/) | Architecture for Azure Managed Applications |
-| [devops-gitops/](devops-gitops/) | On-premises GitLab → AKS GitOps pipeline architecture |
+| [azure-managed-app-container-offer/](azure-managed-app-container-offer/) | End-to-end implementation combining Managed Application infrastructure and Container Offer packaging |
 
 ## Kubernetes Examples
 
