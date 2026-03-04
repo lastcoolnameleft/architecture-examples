@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="sRKXWuvw9UC4DxCprUaX" name="Page-1">
-        <mxGraphModel dx="2128" dy="1637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="3097" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -47,31 +47,37 @@
                         <mxPoint x="-12" y="3" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="154" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                <mxCell id="154" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="15" vertex="1">
                     <mxGeometry x="239" y="182.5" width="121" height="115.25" as="geometry"/>
                 </mxCell>
-                <mxCell id="160" style="edgeStyle=none;html=1;" edge="1" parent="15" source="155" target="157">
+                <mxCell id="160" style="edgeStyle=none;html=1;" parent="15" source="155" target="157" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="443" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="160">
+                <mxCell id="163" value="443" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="160" vertex="1" connectable="0">
                     <mxGeometry x="0.2028" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="155" value="IP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF0000;" vertex="1" parent="15">
+                <mxCell id="155" value="&lt;font style=&quot;color: rgb(255, 255, 255); font-size: 20px;&quot;&gt;IP&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF0000;" parent="15" vertex="1">
                     <mxGeometry x="269" y="214.12" width="70" height="52" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;app pod&lt;br&gt;(http)" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon;prIcon=pod" parent="15" vertex="1">
-                    <mxGeometry x="339" y="148.99517241379306" width="50" height="69.51724137931035" as="geometry"/>
+                <mxCell id="22" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon;prIcon=pod" parent="15" vertex="1">
+                    <mxGeometry x="219" y="149" width="50" height="71" as="geometry"/>
                 </mxCell>
-                <mxCell id="157" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
-                    <mxGeometry x="69" y="176" width="121" height="115.25" as="geometry"/>
+                <mxCell id="157" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="15" vertex="1">
+                    <mxGeometry x="69" y="182.5" width="121" height="115.25" as="geometry"/>
                 </mxCell>
-                <mxCell id="158" value="IP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF0000;" vertex="1" parent="15">
-                    <mxGeometry x="99" y="207.6199999999999" width="70" height="52" as="geometry"/>
+                <mxCell id="158" value="&lt;font style=&quot;color: rgb(255, 255, 255); font-size: 20px;&quot;&gt;IP&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF0000;" parent="15" vertex="1">
+                    <mxGeometry x="99" y="214.12999999999988" width="70" height="52" as="geometry"/>
                 </mxCell>
-                <mxCell id="159" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;data pod&lt;br&gt;(http)" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon;prIcon=pod" vertex="1" parent="15">
-                    <mxGeometry x="169" y="142.49517241379317" width="50" height="69.51724137931035" as="geometry"/>
+                <mxCell id="159" value="" style="sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon;prIcon=pod" parent="15" vertex="1">
+                    <mxGeometry x="49" y="144.60517241379318" width="50" height="69.51724137931035" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="Frontend Pod (http)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="15">
+                    <mxGeometry x="256" y="302.5" width="96" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" value="Backend Pod (http)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="15">
+                    <mxGeometry x="94" y="149" width="96" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/containers/Kubernetes_Services.svg;" parent="13" vertex="1">
                     <mxGeometry x="78" y="40" width="68" height="60" as="geometry"/>
@@ -160,7 +166,7 @@
                 <mxCell id="145" value="" style="endArrow=none;dashed=1;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="400" y="1550" as="sourcePoint"/>
-                        <mxPoint x="400" y="400" as="targetPoint"/>
+                        <mxPoint x="400" y="610" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="147" value="&lt;font style=&quot;font-size: 24px&quot;&gt;SaaS Solution Subscription&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -169,20 +175,20 @@
                 <mxCell id="148" value="&lt;font style=&quot;font-size: 24px&quot;&gt;Customer Subscription&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="677.45" y="675.5" width="343" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="153" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;" vertex="1" parent="1">
+                <mxCell id="153" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;" parent="1" vertex="1">
                     <mxGeometry x="-597" y="1340" width="64" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="161" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="158" target="38">
+                <mxCell id="161" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="158" target="38" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-400" y="1180" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="162" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="30">
+                <mxCell id="162" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="30" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-380" y="1160" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="164" value="&lt;h1&gt;&lt;font style=&quot;font-size: 36px;&quot;&gt;Data Flow&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;1. Request is initiated from the client's app in the Customer's Subscription&lt;br&gt;2. The request is received and authenticated at the &quot;app pod&quot; and verified it is valid&lt;br&gt;&lt;/font&gt;&lt;span style=&quot;font-size: 18px; background-color: initial;&quot;&gt;3. The query is then sent to the &quot;data pod&quot; which connects to CosmosDB&lt;br&gt;4. The response data is pulled from the Azure Storage Account and sent back to the user&lt;/span&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                <mxCell id="164" value="&lt;h1&gt;&lt;font style=&quot;font-size: 36px;&quot;&gt;Data Flow&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;1. Request is initiated from the client&#39;s app in the Customer&#39;s Subscription&lt;br&gt;2. The request is received and authenticated at the &quot;app pod&quot; and verified it is valid&lt;br&gt;&lt;/font&gt;&lt;span style=&quot;font-size: 18px; background-color: initial;&quot;&gt;3. The query is then sent to the &quot;data pod&quot; which connects to CosmosDB&lt;br&gt;4. The response data is pulled from the Azure Storage Account and sent back to the user&lt;/span&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-610" y="1580" width="820" height="230" as="geometry"/>
                 </mxCell>
             </root>
