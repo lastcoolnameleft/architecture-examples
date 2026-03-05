@@ -6,6 +6,8 @@ This repository contains two Azure Marketplace offers based on the [Azure Voting
 
 Azure Marketplace has different offer types, and each one has different rules around pricing, customer visibility, and infrastructure control. This repo demonstrates how to **combine** a Managed Application offer with a Container Offer to cover all those scenarios.
 
+![Architecture Diagram](architecture/architecture.png)
+
 ### Scenario 1: Control what the end customer sees
 
 With a **Managed Application**, the publisher can retain control over the managed resource group. The end customer can see that the application exists, but they cannot directly access or modify the underlying infrastructure (AKS cluster, Redis cache, networking, etc.). This is ideal when you want to present a turnkey solution and prevent customers from making changes that could break the application or violate your support model.

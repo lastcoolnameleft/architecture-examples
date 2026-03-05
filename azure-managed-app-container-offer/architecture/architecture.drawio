@@ -1,0 +1,187 @@
+<mxfile host="65bd71144e">
+    <diagram id="azure-managed-app-container-offer" name="Architecture">
+        <mxGraphModel dx="2571" dy="2652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1300" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="25" value="" style="rounded=1;whiteSpace=wrap;html=1;glass=0;" vertex="1" parent="1">
+                    <mxGeometry y="-280" width="1620" height="1600" as="geometry"/>
+                </mxCell>
+                <mxCell id="marketplace" value="Microsoft Marketplace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=15;fontStyle=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;arcSize=6;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="20" width="1200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="managed_app_offer" value="Managed App Offer" style="aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/general/Marketplace.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="45" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="container_offer" value="Container Offer&lt;br&gt;&lt;i style=&quot;font-size:10px&quot;&gt;(Application)&lt;/i&gt;" style="aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/general/Marketplace.svg;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="920" y="45" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="subscription" value="Customer Subscription" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3B8CDB;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;arcSize=4;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="190" width="1400" height="830" as="geometry"/>
+                </mxCell>
+                <mxCell id="mrg" value="Managed Resource Group" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;dashPattern=8 4;strokeColor=#808080;strokeWidth=2;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;arcSize=4;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="240" width="1340" height="730" as="geometry"/>
+                </mxCell>
+                <mxCell id="vnet" value="Virtual Network (10.0.0.0/16)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#6C8EBF;strokeWidth=2;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=50;spacingTop=8;arcSize=4;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="395" width="870" height="385" as="geometry"/>
+                </mxCell>
+                <mxCell id="aks_subnet" value="AKS Subnet (10.0.0.0/22)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;fontSize=12;fontStyle=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;arcSize=4;dashed=1;dashPattern=5 3;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="440" width="480" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="pe_subnet" value="Private Endpoint Subnet (10.0.4.0/24)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=1;fontSize=12;fontStyle=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;arcSize=4;dashed=1;dashPattern=5 3;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="440" width="270" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="aks_cluster" value="AKS Cluster" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0078D4;strokeWidth=2;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=50;spacingTop=8;arcSize=6;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="485" width="420" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="Deploys Infrastructure" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0078D4;dashed=1;dashPattern=8 4;fontSize=10;fontColor=#0078D4;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.301;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="managed_app_offer" target="mrg" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="Deploys Application" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00A36C;dashed=1;dashPattern=8 4;fontSize=10;fontColor=#00A36C;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="container_offer" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="945" y="310"/>
+                            <mxPoint x="301" y="310"/>
+                            <mxPoint x="301" y="536"/>
+                        </Array>
+                        <mxPoint x="301" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e4" value="Deploys" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#00A36C;fontSize=10;fontColor=#00A36C;labelBackgroundColor=#FFFFFF;entryX=0.005;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="7" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="322" y="561" as="sourcePoint"/>
+                        <mxPoint x="501" y="560.047619047619" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" value="Redis Connection" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E65100;fontSize=10;fontColor=#E65100;labelBackgroundColor=#FFFFFF;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;entryX=0.032;entryY=0.659;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="5" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="549" y="559.9999999999998" as="sourcePoint"/>
+                        <mxPoint x="890" y="584" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e6" value="Private Link" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#E65100;fontSize=10;fontColor=#E65100;labelBackgroundColor=#FFFFFF;exitX=1.011;exitY=0.688;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.595;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="938" y="584" as="sourcePoint"/>
+                        <mxPoint x="1220" y="537" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e7" value="VNet Link" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#808080;dashed=1;dashPattern=5 3;fontSize=10;fontColor=#808080;labelBackgroundColor=#FFFFFF;exitX=0.453;exitY=0.002;exitDx=0;exitDy=0;entryX=0.4;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="6" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="636" y="910" as="sourcePoint"/>
+                        <mxPoint x="570" y="780" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e8" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#107C10;fontSize=11;fontStyle=1;fontColor=#107C10;labelBackgroundColor=#FFFFFF;entryX=0.46;entryY=0.99;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="9" target="4" edge="1">
+                    <mxGeometry x="0.0076" y="34" relative="1" as="geometry">
+                        <mxPoint x="379.0000000000002" y="1150" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="472" y="1100"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e9" value="Exposes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#0078D4;fontSize=10;fontColor=#0078D4;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.463;entryY=-0.018;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="5" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="524.9999999999995" y="580.9999999999998" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="title" value="&lt;b style=&quot;font-size:16px&quot;&gt;Azure Managed App + Container Offer Architecture&lt;/b&gt;&lt;br&gt;&lt;br&gt;The Managed Application deploys the infrastructure (AKS, Redis, VNet, Identity).&lt;br&gt;The Container Offer deploys the application (Helm chart via K8s Extension) onto AKS.&lt;br&gt;This pattern enables billing for both infrastructure management &lt;i&gt;and&lt;/i&gt; application IP." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;spacingLeft=5;spacingTop=5;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="1150" width="700" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="Legend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#808080;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="1110" y="824" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_infra" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#0078D4;dashed=1;dashPattern=8 4;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1130" y="859" as="sourcePoint"/>
+                        <mxPoint x="1200" y="859" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend_infra_label" value="Infrastructure deployment" style="text;html=1;fontSize=10;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1210" y="849" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_app" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#00A36C;dashed=1;dashPattern=8 4;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1130" y="879" as="sourcePoint"/>
+                        <mxPoint x="1200" y="879" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend_app_label" value="Application deployment" style="text;html=1;fontSize=10;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1210" y="869" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend_data" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#E65100;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1130" y="899" as="sourcePoint"/>
+                        <mxPoint x="1200" y="899" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend_data_label" value="Data flow (Private Link)" style="text;html=1;fontSize=10;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1210" y="889" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Private Endpoint" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Private_Endpoint.svg;" vertex="1" parent="1">
+                    <mxGeometry x="839" y="536.0000000000001" width="52" height="47.67" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Azure Managed&lt;div&gt;Redis&lt;/div&gt;" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" vertex="1" parent="1">
+                    <mxGeometry x="1180" y="542" width="50" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Azure Load Balancer" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Load_Balancers.svg;" vertex="1" parent="1">
+                    <mxGeometry x="449" y="680" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Azure Vote" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=pod" vertex="1" parent="1">
+                    <mxGeometry x="449" y="536" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Private DNS Zone&lt;div&gt;&lt;i style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: rgb(251, 251, 251); font-size: 9px;&quot;&gt;privatelink.redis.azure.net&lt;/i&gt;&lt;/div&gt;" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/DNS_Zones.svg;" vertex="1" parent="1">
+                    <mxGeometry x="542" y="850" width="64" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 11px;&quot;&gt;K8s Extension&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 11px;&quot;&gt;&lt;i style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: 10px;&quot;&gt;(Container Offer)&lt;/i&gt;" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="1">
+                    <mxGeometry x="277" y="536" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700;&quot;&gt;Users / Internet&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="1060" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Partner Subscription" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3B8CDB;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;arcSize=4;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="-255" width="260" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Azure Container Registry" style="editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjM3Ny4xNTkzMDIxNjAyNjMwNSIgaGVpZ2h0PSIzMzYuMTYyNDk5MDAzMzEwOCIgdmlld0JveD0iLTAuMDU4MDAwMDA1NzgxNjUwNTQgMC4xMTI5OTk5OTgwMzMwNDY3MiA5OS43OTAwMDA5MTU1MjczNCA4OC45NDMwMDA3OTM0NTcwMyI+JiN4YTs8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qxe2ZpbGw6I2FlY2JmYTt9JiN4YTsJLnN0MntmaWxsOiM0Mjg1ZjQ7fSYjeGE7PC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTMuMjQzIDYyLjA5VjQ3LjA5NGwxMy4yMDEgOC40MTZ2MTUuMDM4em0tMzMuMDIxIDBWNDcuMDk0bDEzLjIwMSA4LjQxNnYxNS4wMzh6bTE2LjUxMS0zMi4yODVWMTQuODFsMTMuMjAxIDguNDE2djE1LjAzOHptNjIuOTk5IDMzLjk2VjI1LjQwM2wtOS41NjItMS44ODR2NDIuMTMxem0tOTkuNzg4IDBWMjUuNDAzbDkuNTYyLTEuODg0djQyLjEzMXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTMuMTg1IDQ3LjA5NGwxMy4yNTgtOC4yODcgMTMuMDE2IDguMjM0LTEzLjAxNiA4LjQ2OXptLTMzLjAyMSAwbDEzLjI1OC04LjI4NyAxMy4wMTYgOC4yMzQtMTMuMDE2IDguNDY5ek0zNi42NzUgMTQuODFsMTMuMjU4LTguMjg3IDEzLjAxNiA4LjIzNC0xMy4wMTYgOC40Njl6bTYzLjA1NiA0OC45NTZ2MTIuMjE3TDc3LjAxIDg5LjA1NVY3Ny43NTJ6bTAtMzguMzYzVjEzLjE4Nkw3Ny4wMS4xMTN2MTEuMzAzek0tLjA1OCA2My43NjZ2MTIuMjE3bDIyLjcyMSAxMy4wNzNWNzcuNzUyem0wLTM4LjM2M1YxMy4xODZMMjIuNjYzLjExM3YxMS4zMDN6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTY2LjQ0NCA3MC41NDdWNTUuNTFsMTMuMDE2LTguNDY5djE1LjR6bS0zMy4wMjEgMFY1NS41MWwxMy4wMTYtOC40Njl2MTUuNHptMTYuNTExLTMyLjI4NVYyMy4yMjVsMTMuMDE2LTguNDY5djE1LjR6bTQ5Ljc5OCAyNS41MDNsLTkuNTYyIDUuODh2LTMuOTk2em0wLTM4LjM2M2wtOS41NjItNS44OHYzLjk5NnpNLS4wNTggNjMuNzY2bDkuNTYyIDUuODh2LTMuOTk2em0wLTM4LjM2M2w5LjU2Mi01Ljg4djMuOTk2eiIvPiYjeGE7PC9zdmc+;" vertex="1" parent="1">
+                    <mxGeometry x="1060" y="-173" width="40" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;dashed=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="13" target="marketplace">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Publishes Offers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="23">
+                    <mxGeometry x="-0.0521" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="Partner Center" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=15;fontStyle=1;verticalAlign=top;align=left;spacingLeft=15;spacingTop=8;arcSize=6;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="-250" width="230" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Kubernetes_Services.svg;" vertex="1" parent="1">
+                    <mxGeometry x="218" y="480" width="46" height="40.59" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.virtual_network;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="380" width="50" height="27.500000000000004" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;dashed=1;strokeWidth=2;" edge="1" parent="1" source="16" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Creates&lt;div&gt;Managed App&lt;/div&gt;&lt;div&gt;+ Container Offer&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="17">
+                    <mxGeometry x="0.2235" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;strokeWidth=2;" edge="1" parent="1" source="16" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Bundles Container&lt;div&gt;Offer&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="19">
+                    <mxGeometry x="-0.0144" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="-185" width="30" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
