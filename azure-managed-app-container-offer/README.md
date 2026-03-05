@@ -6,7 +6,7 @@ This repository contains two Azure Marketplace offers based on the [Azure Voting
 
 Azure Marketplace has different offer types, and each one has different rules around pricing, customer visibility, and infrastructure control. This repo demonstrates how to **combine** a Managed Application offer with a Container Offer to cover all those scenarios.
 
-![Architecture Diagram](architecture/architecture.png)
+[![Architecture Diagram](architecture/architecture.png)](architecture/architecture.png)
 
 ### Scenario 1: Control what the end customer sees
 
