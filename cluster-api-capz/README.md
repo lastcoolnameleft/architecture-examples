@@ -1,6 +1,6 @@
 # CAPI / CAPZ Architecture
 
-![](architecture.svg)
+[![CAPI / CAPZ Architecture](architecture.svg)](architecture.svg)
 
 ## Developer notes
 

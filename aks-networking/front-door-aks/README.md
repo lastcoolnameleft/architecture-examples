@@ -51,11 +51,11 @@ curl -H "Host: $NAME2.$CUSTOM_DOMAIN" http://$INGRESS_IP
 
 NOTE: I have noticed Front Door taking ~10 minutes to propagate the changes, even after saving the configuration is complete.
 
-![Front Door Designer](images/fd-designer.png)
-![Front Door Custom Domain](images/fd-custom-domain-settings.png)
-![Front Door Backend Pool](images/fd-backend-pool-settings.png)
-![Front Door Backend](images/fd-backend-settings.png)
-![Front Door Routing Rule](images/fd-routing-rule.png)
+[![Front Door Designer](images/fd-designer.png)](images/fd-designer.png)
+[![Front Door Custom Domain](images/fd-custom-domain-settings.png)](images/fd-custom-domain-settings.png)
+[![Front Door Backend Pool](images/fd-backend-pool-settings.png)](images/fd-backend-pool-settings.png)
+[![Front Door Backend](images/fd-backend-settings.png)](images/fd-backend-settings.png)
+[![Front Door Routing Rule](images/fd-routing-rule.png)](images/fd-routing-rule.png)
 
 
 ## Cleanup

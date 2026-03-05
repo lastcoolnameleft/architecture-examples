@@ -4,7 +4,7 @@
 
 ## Architecture Diagram
 
-![Container Offer Architecture](k8s-offer-arch.png)
+[![Container Offer Architecture](k8s-offer-arch.png)](k8s-offer-arch.png)
 
 Open [arch.drawio](arch.drawio) in [Draw.io](https://app.diagrams.net/) to view and edit.
 

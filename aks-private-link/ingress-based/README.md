@@ -10,7 +10,7 @@ This is inspired and leans heavily on the Azure Docs for [creating a Private Lin
 
 ## Architecture
 
-![Private Link Endpoint Service](private-link-endpoint.svg)
+[![Private Link Endpoint Service](private-link-endpoint.svg)](private-link-endpoint.svg)
 
 ## Prerequisites
 

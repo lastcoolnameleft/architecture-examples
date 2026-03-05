@@ -44,4 +44,4 @@ This example models a SaaS architecture where a customer (also on Azure) connect
 
 To use this as a starting point, [download the Draw.io source file](sample-reference-architecture.drawio) and modify it to reflect your own architecture.
 
-![Sample reference architecture diagram](sample-reference-architecture.png)
+[![Sample reference architecture diagram](sample-reference-architecture.png)](sample-reference-architecture.png)

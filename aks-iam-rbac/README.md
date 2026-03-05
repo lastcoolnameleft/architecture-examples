@@ -14,7 +14,7 @@ This implementation supports:
 
 ## Architecture
 
-![AKS IAM Architecture](docs/architecture-with-icons.png)
+[![AKS IAM Architecture](docs/architecture-with-icons.png)](docs/architecture-with-icons.png)
 
 *Persona-based RBAC architecture with Entra ID integration, PIM-based JIT elevation, and comprehensive audit logging to Azure Log Analytics.*
 

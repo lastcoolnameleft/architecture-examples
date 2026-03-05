@@ -8,7 +8,7 @@ There’s good documentation around this on the Microsoft Learn docs; however, o
 
 These steps can be walked through to create your own instance of this architecture:
 
-![](amg-private-loki.png)
+[![AMG Private Loki Architecture](amg-private-loki.png)](amg-private-loki.png)
 
 ```bash
 PREFIX="tmfgps"

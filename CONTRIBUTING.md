@@ -34,7 +34,7 @@ aks-<topic>/
 
 ## Architecture Diagram
 
-![Architecture](architecture.png)
+[![Architecture](architecture.png)](architecture.png)
 
 Open [architecture.drawio](architecture.drawio) in [Draw.io](https://app.diagrams.net/) to view and edit.
 

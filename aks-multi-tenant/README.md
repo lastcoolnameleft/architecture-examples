@@ -8,7 +8,7 @@ This example is for a single-tenant application deployed to provide multi-tenanc
 
 ## Architecture
 
-![](multi-tenant.svg)
+[![Multi-tenant Architecture](multi-tenant.svg)](multi-tenant.svg)
 
 ## Overview
 
