@@ -1,6 +1,6 @@
 # Azure Voting App - Container Offer
 
-This directory contains an **Azure Marketplace Container Offer** (Kubernetes Application) based on the [Azure Voting App Redis](https://github.com/Azure-Samples/azure-voting-app-redis) sample.
+[This directory](https://github.com/lastcoolnameleft/architecture-examples/tree/master/azure-managed-app-container-offer/container-offer) contains an **Azure Marketplace Container Offer** (Kubernetes Application) based on the [Azure Voting App Redis](https://github.com/Azure-Samples/azure-voting-app-redis) sample.
 
 A Container Offer installs a Helm chart via the `Microsoft.KubernetesConfiguration/extensions` API onto an **existing** AKS cluster. The customer selects their cluster during the Marketplace purchase flow.
 
