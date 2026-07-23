@@ -1,0 +1,39 @@
+.site-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 3vw, 40px);
+  background: rgba(0, 0, 0, 0.88);
+  cursor: zoom-out;
+}
+
+.site-lightbox-overlay.open {
+  display: flex;
+}
+
+.site-lightbox-image {
+  max-width: min(96vw, 1700px);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+
+.site-lightbox-hint {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f6f8fa;
+  font-size: 0.9rem;
+  letter-spacing: 0.015em;
+}
+
+.site-lightbox-ready {
+  cursor: zoom-in;
+}
