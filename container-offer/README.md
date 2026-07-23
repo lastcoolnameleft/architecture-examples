@@ -2,12 +2,6 @@
 
 > Architecture guide for container-based Azure Marketplace offers.
 
-## Architecture Diagram
-
-[![Container Offer Architecture](k8s-offer-arch.png)](k8s-offer-arch.png)
-
-Open [arch.drawio](arch.drawio) in [Draw.io](https://app.diagrams.net/) to view and edit.
-
 ## Overview
 
 A **Container Offer** on the Azure Marketplace lets partners package and sell Kubernetes-based applications to customers. The complexity of your offer depends on how much infrastructure you need to deploy and who manages it.
