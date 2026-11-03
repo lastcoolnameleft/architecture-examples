@@ -1,86 +1,86 @@
 <mxfile host="65bd71144e">
     <diagram id="marketplace-offer-tree" name="Marketplace Decision Tree">
-        <mxGraphModel dx="3740" dy="2176" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="3201" dy="1879" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-20" y="-50" width="1880" height="1030" as="geometry"/>
+                <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+                    <mxGeometry height="1030" width="1880" x="-20" y="-50" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="130" y="755" width="1140" height="160" as="geometry"/>
+                <mxCell id="5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+                    <mxGeometry height="160" width="1140" x="130" y="755" as="geometry"/>
                 </mxCell>
-                <mxCell id="title" value="Choose a Microsoft Marketplace Offer Type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#172B4D;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="30" width="680" height="40" as="geometry"/>
+                <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#172B4D;" value="Choose a Microsoft Marketplace Offer Type" vertex="1">
+                    <mxGeometry height="40" width="680" x="40" y="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="subtitle" value="Decide by delivery model, deployment target, management responsibility, and distribution needs" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#5E6C84;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="70" width="800" height="30" as="geometry"/>
+                <mxCell id="subtitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#5E6C84;" value="Decide by delivery model, deployment target, management responsibility, and distribution needs" vertex="1">
+                    <mxGeometry height="30" width="800" x="40" y="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="start" value="START" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#F4F5F7;strokeColor=#172B4D;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="390" width="90" height="40" as="geometry"/>
+                <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#F4F5F7;strokeColor=#172B4D;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=14;" value="START" vertex="1">
+                    <mxGeometry height="40" width="90" x="40" y="390" as="geometry"/>
                 </mxCell>
-                <mxCell id="what" value="What are you selling?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="180" y="330" width="180" height="160" as="geometry"/>
+                <mxCell id="what" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" value="What are you selling?" vertex="1">
+                    <mxGeometry height="160" width="180" x="180" y="330" as="geometry"/>
                 </mxCell>
-                <mxCell id="host" value="Who hosts the application?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="470" y="325" width="200" height="170" as="geometry"/>
+                <mxCell id="host" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" value="Who hosts the application?" vertex="1">
+                    <mxGeometry height="170" width="200" x="470" y="325" as="geometry"/>
                 </mxCell>
-                <mxCell id="package" value="How is the software packaged?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="790" y="180" width="210" height="180" as="geometry"/>
+                <mxCell id="package" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" value="How is the software packaged?" vertex="1">
+                    <mxGeometry height="180" width="210" x="790" y="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="manager" value="Who manages it after deployment?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="950" y="400" width="220" height="180" as="geometry"/>
+                <mxCell id="manager" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" value="Who manages it after deployment?" vertex="1">
+                    <mxGeometry height="180" width="220" x="950" y="400" as="geometry"/>
                 </mxCell>
-                <mxCell id="marketplace-value" value="Do you need a guided Azure deployment experience?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="1260" y="500" width="230" height="180" as="geometry"/>
+                <mxCell id="marketplace-value" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#6F42C1;strokeColor=#4C2889;fontColor=#FFFFFF;fontStyle=1;fontSize=14;" value="Do you need a guided Azure deployment experience?" vertex="1">
+                    <mxGeometry height="180" width="230" x="1260" y="500" as="geometry"/>
                 </mxCell>
-                <mxCell id="saas" value="SaaS Offer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="470" y="600" width="200" height="60" as="geometry"/>
+                <mxCell id="saas" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" value="SaaS Offer" vertex="1">
+                    <mxGeometry height="60" width="200" x="470" y="600" as="geometry"/>
                 </mxCell>
-                <mxCell id="container" value="Azure Container Offer&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Kubernetes application for AKS&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="1250" y="110" width="250" height="70" as="geometry"/>
+                <mxCell id="container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" value="Azure Container Offer&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Kubernetes application for AKS&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="70" width="250" x="1250" y="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="vm" value="Azure Virtual Machine Offer&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;VM image or virtual appliance&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="1250" y="235" width="250" height="70" as="geometry"/>
+                <mxCell id="vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" value="Azure Virtual Machine Offer&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;VM image or virtual appliance&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="70" width="250" x="1250" y="235" as="geometry"/>
                 </mxCell>
-                <mxCell id="managed" value="Azure Application&lt;br&gt;&lt;b&gt;Managed Application&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="1250" y="350" width="180" height="70" as="geometry"/>
+                <mxCell id="managed" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontSize=15;" value="Azure Application&lt;br&gt;&lt;b&gt;Managed Application&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="70" width="180" x="1285" y="350" as="geometry"/>
                 </mxCell>
-                <mxCell id="template" value="Azure Application&lt;br&gt;&lt;b&gt;Solution Template&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="1590" y="500" width="200" height="70" as="geometry"/>
+                <mxCell id="template" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;" value="Azure Application&lt;br&gt;&lt;b&gt;Solution Template&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="70" width="200" x="1590" y="500" as="geometry"/>
                 </mxCell>
-                <mxCell id="github" value="Publish independently&lt;br&gt;&lt;b&gt;GitHub + Deploy to Azure&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="1590" y="620" width="200" height="70" as="geometry"/>
+                <mxCell id="github" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;" value="Publish independently&lt;br&gt;&lt;b&gt;GitHub + Deploy to Azure&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="70" width="200" x="1590" y="620" as="geometry"/>
                 </mxCell>
-                <mxCell id="professional" value="Professional Service Offer&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;Remote only; seller ID and customer billing account must be in the US, UK, or Canada&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#56B4E9;strokeColor=#175D7A;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="135" y="120" width="270" height="100" as="geometry"/>
+                <mxCell id="professional" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#56B4E9;strokeColor=#175D7A;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=15;" value="Professional Service Offer&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;Remote only; seller ID and customer billing account must be in the US, UK, or Canada&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="100" width="270" x="135" y="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="service" value="Managed Service Offer&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Delegated Azure management&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=15;" parent="1" vertex="1">
-                    <mxGeometry x="150" y="595" width="240" height="70" as="geometry"/>
+                <mxCell id="service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=15;" value="Managed Service Offer&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Delegated Azure management&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="70" width="240" x="150" y="595" as="geometry"/>
                 </mxCell>
-                <mxCell id="managed-app-note" value="&lt;b&gt;NOTE: Managed Application pricing&lt;/b&gt;&lt;br&gt;The monthly or metered price can cover only management services, not software/IP, Azure infrastructure, or add-ons. If you have no separate software offer, the application can still deploy and manage resources, but this plan cannot charge for the software/IP. The management fee may be $0; Azure usage is billed separately." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=20;fillColor=#EAF2F8;strokeColor=#5B7083;strokeWidth=2;fontColor=#172B4D;fontSize=12;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
-                    <mxGeometry x="1450" y="325" width="370" height="135" as="geometry"/>
+                <mxCell id="managed-app-note" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=20;fillColor=#EAF2F8;strokeColor=#5B7083;strokeWidth=2;fontColor=#172B4D;fontSize=12;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;spacingRight=10;" value="&lt;b&gt;NOTE: Managed Application pricing&lt;/b&gt;&lt;br&gt;Monthly management fee and/or metered management charges; may be $0. Cannot charge for software/IP, infrastructure, or add-ons. Azure usage is billed separately." vertex="1">
+                    <mxGeometry height="100" width="310" x="1530" y="335" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=15;fontStyle=1;fontColor=#172B4D;" vertex="1" parent="1">
-                    <mxGeometry x="150" y="810" width="100" height="30" as="geometry"/>
+                <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=15;fontStyle=1;fontColor=#172B4D;" value="Legend" vertex="1">
+                    <mxGeometry height="30" width="100" x="150" y="810" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-ip" value="Azure IP co-sell-supported offer type*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-                    <mxGeometry x="250" y="800" width="300" height="50" as="geometry"/>
+                <mxCell id="legend-ip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E69F00;strokeColor=#7A4F00;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=12;" value="Azure IP co-sell-supported offer type*" vertex="1">
+                    <mxGeometry height="50" width="300" x="250" y="800" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-tx" value="Marketplace-transactable; not IP co-sell eligible" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#56B4E9;strokeColor=#175D7A;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-                    <mxGeometry x="570" y="800" width="350" height="50" as="geometry"/>
+                <mxCell id="legend-tx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#56B4E9;strokeColor=#175D7A;strokeWidth=2;fontColor=#172B4D;fontStyle=1;fontSize=12;" value="Marketplace-transactable; not IP co-sell eligible" vertex="1">
+                    <mxGeometry height="50" width="350" x="570" y="800" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-no" value="Not Azure IP co-sell eligible" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-                    <mxGeometry x="940" y="800" width="310" height="50" as="geometry"/>
+                <mxCell id="legend-no" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0072B2;strokeColor=#004B76;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=12;" value="Not Azure IP co-sell eligible" vertex="1">
+                    <mxGeometry height="50" width="310" x="940" y="800" as="geometry"/>
                 </mxCell>
-                <mxCell id="legend-footnote" value="* Offer type support does not guarantee status. Co-sell-ready status, IP solution type, Azure platforming/deployment, revenue threshold, technical validation, and Marketplace transactability also apply." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;fontColor=#5E6C84;" vertex="1" parent="1">
-                    <mxGeometry x="250" y="860" width="1000" height="55" as="geometry"/>
+                <mxCell id="legend-footnote" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;fontColor=#5E6C84;" value="* Offer type support does not guarantee status. Co-sell-ready status, IP solution type, Azure platforming/deployment, revenue threshold, technical validation, and Marketplace transactability also apply." vertex="1">
+                    <mxGeometry height="55" width="1000" x="250" y="860" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;" parent="1" source="start" target="what" edge="1">
+                <mxCell id="e-start" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;" target="what">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-hosted" value="Application" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="what" target="host" edge="1">
-                    <mxGeometry x="-0.1665" relative="1" as="geometry">
+                <mxCell id="e-hosted" edge="1" parent="1" source="what" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="host" value="Application">
+                    <mxGeometry relative="1" x="-0.1665" as="geometry">
                         <mxPoint as="offset"/>
                         <Array as="points">
                             <mxPoint x="410" y="410"/>
@@ -88,48 +88,48 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e-professional" value="Consulting or implementation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="what" target="professional" edge="1">
+                <mxCell id="e-professional" edge="1" parent="1" source="what" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="professional" value="Consulting or implementation">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="350" y="410" as="sourcePoint"/>
-                        <mxPoint x="550" y="515" as="targetPoint"/>
+                        <mxPoint as="offset"/>
                         <Array as="points">
                             <mxPoint x="270" y="250"/>
                         </Array>
-                        <mxPoint as="offset"/>
+                        <mxPoint x="350" y="410" as="sourcePoint"/>
+                        <mxPoint x="550" y="515" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e-service" value="Ongoing delegated management" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="what" target="service" edge="1">
+                <mxCell id="e-service" edge="1" parent="1" source="what" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="service" value="Ongoing delegated management">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-publisher" value="Publisher environment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="host" target="saas" edge="1">
+                <mxCell id="e-publisher" edge="1" parent="1" source="host" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="saas" value="Publisher environment">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-customer" value="Customer Azure subscription" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="host" target="package" edge="1">
+                <mxCell id="e-customer" edge="1" parent="1" source="host" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="package" value="Customer Azure subscription">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-container" value="Kubernetes application" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="package" target="container" edge="1">
-                    <mxGeometry x="0.4737" relative="1" as="geometry">
+                <mxCell id="e-container" edge="1" parent="1" source="package" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="container" value="Kubernetes application">
+                    <mxGeometry relative="1" x="0.4737" as="geometry">
+                        <mxPoint as="offset"/>
                         <Array as="points">
                             <mxPoint x="1060" y="270"/>
                             <mxPoint x="1060" y="140"/>
                         </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-vm" edge="1" parent="1" source="package" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="vm" value="VM image or appliance">
+                    <mxGeometry relative="1" x="0.2" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e-vm" value="VM image or appliance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="package" target="vm" edge="1">
-                    <mxGeometry x="0.2" relative="1" as="geometry">
+                <mxCell id="e-resources" edge="1" parent="1" source="package" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="manager" value="Multiple Azure resources">
+                    <mxGeometry relative="1" x="0.4128" as="geometry">
                         <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="e-resources" value="Multiple Azure resources" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="package" target="manager" edge="1">
-                    <mxGeometry x="0.4128" relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1060" y="270"/>
                         </Array>
-                        <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e-managed" value="Publisher or partner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="manager" target="managed" edge="1">
+                <mxCell id="e-managed" edge="1" parent="1" source="manager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="managed" value="Publisher or partner">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1220" y="490"/>
@@ -137,7 +137,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e-marketplace-value" value="Customer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="manager" target="marketplace-value" edge="1">
+                <mxCell id="e-marketplace-value" edge="1" parent="1" source="manager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="marketplace-value" value="Customer">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1220" y="490"/>
@@ -145,13 +145,19 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e-template" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="marketplace-value" target="template" edge="1">
+                <mxCell id="e-template" edge="1" parent="1" source="marketplace-value" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="template" value="Yes">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-github" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" parent="1" source="marketplace-value" target="github" edge="1">
-                    <mxGeometry x="-0.001" relative="1" as="geometry">
+                <mxCell id="e-github" edge="1" parent="1" source="marketplace-value" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#5E6C84;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;" target="github" value="No">
+                    <mxGeometry relative="1" x="-0.001" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="OpeAEeQ3N3_r2xdSlv_S-5" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=20;fillColor=#EAF2F8;strokeColor=#5B7083;strokeWidth=2;fontColor=#172B4D;fontSize=12;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;spacingRight=10;" value="&lt;b&gt;NOTE: VM Offer&lt;/b&gt;&lt;div&gt;Free, BYOL, or hourly pay-as-you-go pricing (flat rate or vCPU-based), billed monthly; software reservations also supported. No custom Marketplace metering.&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="90" width="310" x="1530" y="225" as="geometry"/>
+                </mxCell>
+                <mxCell id="OpeAEeQ3N3_r2xdSlv_S-6" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=20;fillColor=#EAF2F8;strokeColor=#5B7083;strokeWidth=2;fontColor=#172B4D;fontSize=12;align=left;verticalAlign=top;spacingTop=10;spacingLeft=10;spacingRight=10;" value="&lt;b&gt;NOTE: Azure Container Offer&lt;/b&gt;&lt;div&gt;Free, BYOL, or usage-based pricing per core, node, pod, or cluster; custom meters supported. Usage billed monthly; no native annual subscription billing.&lt;/div&gt;&lt;div&gt;Y&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;early billing available thorough Private offers only (VMSR - Virtual Machine Software Reservations)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="110" width="310" x="1530" y="90" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
